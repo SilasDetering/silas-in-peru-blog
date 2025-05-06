@@ -1,0 +1,18 @@
+.custom-pills .nav-link.active {
+    background-color: #52796F;
+    color: #ffffff;
+}
+
+.custom-pills .nav-link {
+    color: #CAD2C5;
+    margin-bottom: 10px;
+}
+
+.custom-pills .nav-link:hover {
+    background-color: #52796f7c;
+}
+
+.custom-navbar {
+    width: 100%;
+    background: linear-gradient(to bottom, #354F52, #354F52 80%, rgba(1, 68, 33, 0) 100%);
+}

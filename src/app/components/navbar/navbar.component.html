@@ -1,0 +1,25 @@
+<header class="d-flex justify-content-center py-3 custom-navbar">
+  <ul class="nav nav-pills custom-pills">
+    <li class="nav-item me-1">
+      <a routerLink="" routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">
+        <i class="bi bi-bookmark-fill me-1"></i> Blog
+      </a>
+    </li>
+    <li class="nav-item me-1">
+      <a routerLink="/über-mich" routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">
+        <i class="bi bi-person-raised-hand me-1"></i> Über mich
+      </a>
+    </li>
+    <li class="nav-item me-1">
+      <a routerLink="/einsatzort" routerLinkActive="active" class="nav-link"
+        [routerLinkActiveOptions]="{ exact: true }">
+        <i class="bi bi-pin-map-fill me-1"></i> Mein Einsatzort
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/bilder" routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">
+        <i class="bi bi-camera-fill me-1"></i> Bilder
+      </a>
+    </li>
+  </ul>
+</header>
