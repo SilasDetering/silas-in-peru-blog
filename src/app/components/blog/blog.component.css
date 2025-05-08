@@ -1,0 +1,17 @@
+.blog-page {
+    padding: 0 10%;
+}
+
+.blog-post {
+    margin-top: 50px;
+}
+
+.spacer{
+    border: 1px solid #CAD2C5;
+    margin: 0 auto 20px auto;
+    opacity: 0.8;
+}
+
+.date {
+    margin: 0;
+}

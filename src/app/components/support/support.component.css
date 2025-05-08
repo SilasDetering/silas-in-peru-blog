@@ -1,0 +1,32 @@
+.support{
+    text-align: center;
+    padding: 0 5%;
+    margin: 10vh 0 5vh 0;
+}
+
+.support-content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.finance,
+.prayer {
+    flex: 1 1 300px;
+    box-sizing: border-box;
+}
+
+.prayer-icon {
+    width: 100px;
+}
+
+.finance-icon {
+    width: 80px;
+    margin: 15px 0 10px 0;
+}
+
+.text-left {
+    text-align: left;
+}

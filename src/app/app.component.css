@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 50%;
+    height: 60%;
     transform-style: preserve-3d;
     z-index: -1;
 }
@@ -31,7 +31,7 @@
 }
 
 .title {
-    margin-top: 15vh;
+    margin-top: 20vh;
     font-size: 8rem;
     font-weight: 500;
     text-align: top;

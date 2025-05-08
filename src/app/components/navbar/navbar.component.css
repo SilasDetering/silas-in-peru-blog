@@ -5,7 +5,7 @@
 
 .custom-pills .nav-link {
     color: #CAD2C5;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
 }
 
 .custom-pills .nav-link:hover {
@@ -14,5 +14,5 @@
 
 .custom-navbar {
     width: 100%;
-    background: linear-gradient(to bottom, #354F52, #354F52 80%, rgba(1, 68, 33, 0) 100%);
+    background: linear-gradient(to bottom, #354F52, #354F52 100%, rgba(1, 68, 33, 0) 100%);
 }

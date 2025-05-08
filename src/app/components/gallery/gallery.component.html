@@ -1,1 +1,10 @@
-<p>gallery works!</p>
+<div class="gallery">
+  <div class="gallery-item" *ngFor="let image of images" (click)="openImage(image)">
+    <img [src]="image" alt="Gallery Image" />
+  </div>
+</div>
+
+<!-- Modal für Vollbildanzeige -->
+<div class="modal" *ngIf="selectedImage" (click)="closeImage()">
+  <img [src]="selectedImage" alt="Full Image" />
+</div>
