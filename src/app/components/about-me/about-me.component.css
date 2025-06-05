@@ -1,6 +1,28 @@
 .page {
-    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
     padding: 0 10%;
+    margin-top: 2%;
+}
+
+.about-me-text {
+    flex: 1 1 60%;
+}
+
+.about-me-image-container {
+    flex: 1 1 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-me-image {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
     color: #CAD2C5;
 
 }
