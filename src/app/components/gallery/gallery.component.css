@@ -1,9 +1,12 @@
+.gallery-page {
+    color: #CAD2C5;
+    padding: 0 10%;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 15px;
-    padding: 0 10%;
-    margin-top: 50px;
 }
 
 .gallery-item {
@@ -50,4 +53,15 @@
     max-height: 90%;
     border: 2px solid white;
     border-radius: 5px;
+}
+
+.spacer{
+    border: 2px solid #CAD2C5;
+    margin: 0 auto 10px auto;
+    opacity: 0.8;
+}
+
+.date {
+    margin: 20px 0 -5px 0;
+    font-size: 50px;
 }

@@ -1,10 +1,25 @@
-<div class="gallery">
-  <div class="gallery-item" *ngFor="let image of images" (click)="openImage(image)">
-    <img [src]="image" alt="Gallery Image" />
-  </div>
-</div>
+<div class="gallery-page">
 
-<!-- Modal für Vollbildanzeige -->
-<div class="modal" *ngIf="selectedImage" (click)="closeImage()">
-  <img [src]="selectedImage" alt="Full Image" />
+  <p class="date">September</p>
+  <hr class="spacer">
+  
+  <div class="gallery">
+    <div class="gallery-item" *ngFor="let image of images" (click)="openImage(image)">
+      <img [src]="image" alt="Gallery Image" />
+    </div>
+  </div>
+
+  <p class="date">August</p>
+  <hr class="spacer">
+
+  <div class="gallery">
+    <div class="gallery-item" *ngFor="let image of images" (click)="openImage(image)">
+      <img [src]="image" alt="Gallery Image" />
+    </div>
+  </div>
+
+  <!-- Modal für Vollbildanzeige -->
+  <div class="modal" *ngIf="selectedImage" (click)="closeImage()">
+    <img [src]="selectedImage" alt="Full Image" />
+  </div>
 </div>
