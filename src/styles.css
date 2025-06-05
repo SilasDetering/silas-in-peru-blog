@@ -36,6 +36,10 @@ body {
     background-color: #2F3E46;
 }
 
+a {
+    color: #FF7474;
+}
+
 /* Scrollbar anpassen (nur für WebKit-Browser) */
 ::-webkit-scrollbar {
     width: 12px;

@@ -1,5 +1,6 @@
 .location-page {
     text-align: center;
+    padding: 0 10%;
 }
 
 .video-container {
@@ -17,4 +18,40 @@
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.text-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.text {
+    flex: 1;
+    min-width: 400px;
+}
+
+.image {
+    flex: 0 0 auto;
+}
+
+.image img {
+    max-width: 500px;
+    height: auto;
+}
+
+.time-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.1rem;
+    text-align: center;
+    font-size: 30px;
+}
+
+.time-item {
+    flex: 1 1 200px; /* Flexibles Layout mit Mindestbreite */
+    min-width: 200px; /* Mindestbreite für jede Uhrzeit */
+
 }
