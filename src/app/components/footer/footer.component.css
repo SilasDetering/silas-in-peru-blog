@@ -3,12 +3,24 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-start;
+    gap: 4rem;
     padding: 1rem;
 }
 
 .wiedenest-logo{
     width: 500px;
+    height: auto;
+}
+
+.sponsor-label{
+    color: white;
+    margin-bottom: -10px;
+    font-style: italic;
+    font-size: small;
+}
+
+.bjfd-logo{
+    width: 400px;
     height: auto;
 }

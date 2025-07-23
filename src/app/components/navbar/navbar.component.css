@@ -16,3 +16,11 @@
     width: 100%;
     background: linear-gradient(to bottom, #354F52, #354F52 100%, rgba(1, 68, 33, 0) 100%);
 }
+
+.nav-link.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: #aaa !important;
+    background-color: transparent !important;
+}

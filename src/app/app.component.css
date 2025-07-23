@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 60%;
+    height: 70%;
     transform-style: preserve-3d;
     z-index: -1;
 }
@@ -25,7 +25,7 @@
 }
 
 .body {
-    background: linear-gradient(to top, #354F52, #354F52 98%, rgba(1, 68, 33, 0) 100%);
+    background: linear-gradient(to top, #354F52, #52796F 98%, rgba(1, 68, 33, 0) 100%);
     width: 100%;
     padding-top: 3vh;
 }
@@ -35,5 +35,5 @@
     font-size: 8rem;
     font-weight: 500;
     text-align: top;
-    color: #CAD2C5;
+    color: #ffffffd8;
 }
