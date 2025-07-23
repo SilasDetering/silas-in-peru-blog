@@ -8,9 +8,13 @@
     padding: 1rem;
 }
 
+
 .wiedenest-logo{
-    width: 500px;
+    width: 40vw;
+    max-width: 500px;
+    min-width: 120px;
     height: auto;
+    display: block;
 }
 
 .sponsor-label{
@@ -21,6 +25,28 @@
 }
 
 .bjfd-logo{
-    width: 400px;
+    width: 32vw;
+    max-width: 400px;
+    min-width: 100px;
     height: auto;
+    display: block;
+}
+.footer img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  .wiedenest-logo, .bjfd-logo {
+    width: 80vw;
+    max-width: 90vw;
+    min-width: 80px;
+  }
 }

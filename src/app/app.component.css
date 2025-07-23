@@ -32,8 +32,13 @@
 
 .title {
     margin-top: 20vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
     font-size: 8rem;
     font-weight: 500;
-    text-align: top;
+    text-align: center;
     color: #ffffffd8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
