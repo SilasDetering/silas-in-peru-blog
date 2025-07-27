@@ -26,11 +26,16 @@
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 .text {
     flex: 1;
     min-width: 400px;
+    text-align: left;
+    align-self: flex-start;
+
 }
 
 .image {
@@ -44,15 +49,29 @@
 
 .time-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.1rem;
+    flex-direction: column; /* Für Handy-Displays: Items untereinander */
+    align-items: center; /* Zentriert horizontal */
+    justify-content: center; /* Zentriert vertikal */
+    gap: 3rem;
     text-align: center;
     font-size: 30px;
+    max-width: 600px;
+    margin: 0 auto 75px auto;
+}
+
+@media (min-width: 768px) {
+    .time-container {
+        flex-direction: row; /* Für größere Displays: Items nebeneinander */
+    }
 }
 
 .time-item {
-    flex: 1 1 200px; /* Flexibles Layout mit Mindestbreite */
-    min-width: 200px; /* Mindestbreite für jede Uhrzeit */
+    display: flex;
+    flex-direction: column; /* Text und Uhrzeit untereinander */
+    align-items: center; /* Zentriert den Inhalt */
+}
 
+.clock{
+    font-size: 100px;
+    color: #FF7474;
 }
