@@ -53,3 +53,8 @@
     min-width: 80px;
   }
 }
+
+.impressum, .impressum a {
+  text-align: center;
+  color: #CAD2C5;
+}
