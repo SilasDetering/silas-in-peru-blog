@@ -8,6 +8,7 @@ import { FullscreenImageComponent } from './components/fullscreen-image/fullscre
 
 const routes: Routes = [
   { path: '', component: AboutMeComponent, pathMatch: 'full' }, // HomeComponent
+  { path: 'home', component: HomeComponent },
   { path: 'über-mich', component: AboutMeComponent },
   { path: 'einsatzort', component: LocationComponent },
   { path: 'bilder', component: GalleryComponent },

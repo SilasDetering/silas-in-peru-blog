@@ -12,6 +12,7 @@ import { LocationComponent } from './components/location/location.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SupportComponent } from './components/support/support.component';
 import { FullscreenImageComponent } from './components/fullscreen-image/fullscreen-image.component';
+import { KontaktComponent } from './components/kontakt/kontakt.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FullscreenImageComponent } from './components/fullscreen-image/fullscre
     LocationComponent,
     FooterComponent,
     SupportComponent,
-    FullscreenImageComponent
+    FullscreenImageComponent,
+    KontaktComponent
   ],
   imports: [
     BrowserModule,
