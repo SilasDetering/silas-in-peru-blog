@@ -11,6 +11,9 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { LocationComponent } from './components/location/location.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SupportComponent } from './components/support/support.component';
+import { FullscreenImageComponent } from './components/fullscreen-image/fullscreen-image.component';
+import { KontaktComponent } from './components/kontakt/kontakt.component';
+import { ImpressumComponent } from './components/impressum/impressum.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { SupportComponent } from './components/support/support.component';
     AboutMeComponent,
     LocationComponent,
     FooterComponent,
-    SupportComponent
+    SupportComponent,
+    FullscreenImageComponent,
+    KontaktComponent,
+    ImpressumComponent
   ],
   imports: [
     BrowserModule,

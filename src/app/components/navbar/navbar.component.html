@@ -1,25 +1,32 @@
-<header class="d-flex justify-content-center py-3 custom-navbar">
-  <ul class="nav nav-pills custom-pills">
-    <li class="nav-item me-1">
-      <a routerLink="" routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-bookmark-fill me-1"></i> Blog
-      </a>
-    </li>
-    <li class="nav-item me-1">
-      <a routerLink="/über-mich" routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-person-raised-hand me-1"></i> Über mich
-      </a>
-    </li>
-    <li class="nav-item me-1">
-      <a routerLink="/einsatzort" routerLinkActive="active" class="nav-link"
-        [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-pin-map-fill me-1"></i> Mein Einsatzort
-      </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="/bilder" routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-camera-fill me-1"></i> Bilder
-      </a>
-    </li>
-  </ul>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand d-lg-none" href="#"></a>
+    <button class="navbar-toggler" type="button" (click)="isMenuOpen = !isMenuOpen" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [ngClass]="{ show: isMenuOpen }" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item me-1">
+          <a routerLink="" routerLinkActive="active" class="nav-link disabled" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="bi bi-bookmark-fill me-1"></i> Blog
+          </a>
+        </li>
+        <li class="nav-item me-1">
+          <a routerLink="/über-mich" routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="bi bi-person-raised-hand me-1"></i> Über mich
+          </a>
+        </li>
+        <li class="nav-item me-1">
+          <a routerLink="/einsatzort" routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="bi bi-pin-map-fill me-1"></i> Mein Einsatzort
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/bilder" routerLinkActive="active" class="nav-link disabled" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="bi bi-camera-fill me-1"></i> Bilder
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
