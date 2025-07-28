@@ -10,7 +10,12 @@
             Die Arbeit auf Cashibo umfasst die Ausbildung von einheimischen Pastoren, die Unterstützung von indigenen Stämmen und die Ausbildung in handwerklichen Fähigkeiten.
             Auf Cashibo können die Einheimischen lernen, wie sie mit Werkzeugen umgehen, ihre eigenen Möbel herstellen oder kaputte Geräte selbständig reparieren.
             Der Fokus liegt dabei auf der Hife zur Selbsthilfe damit die Menschen in der Region ein selbstbestimmtes Leben führen können.
-            
+            <br>
+            Neben den handwerklichen Fähigkeiten wird auch viel Wert auf die geistliche Ausbildung gelegt. 
+            Die Einheimischen lernen, mehr über die Bibel und den christlichen Glauben, um ihren Glauben zu vertiefen und in ihren Gemeinden zu teilen.
+            Auf Cashibo laufen auch Projekte in denen die Bibel in die indigenen Sprachen übersetzt wird. 
+            Dies zum Teil auch in Sprachen die zuvor keine geschriebene Form hatten.
+
         </div>
 
         <div class="image">
@@ -19,13 +24,17 @@
     </div>
 
     <div class="time-container mt-4">
-        <h2 class="mt-2">
+        <h2 class="time-item">
             <i class="bi bi-clock clock"></i>
         </h2>
 
         <div class="time-item">
-            <p class="time-germany">Deutschland:</p>
+            <p class="time-germany">Heimat:</p>
             <span id="time-germany"></span>
+        </div>
+
+        <div class="time-item">
+            <p class="time-difference">-7 St.</p>
         </div>
         
         <div class="time-item">
@@ -34,9 +43,29 @@
         </div>
     </div>
 
-    <h2 class="mt-4">
-        Offizielles Vorstellungsvideo von Indicamino 
-    </h2>
+    <div class="time-container mt-4">
+        <h2 class="time-item">
+            <i class="bi {{ weatherIcon }} clock"></i>
+        </h2>
+
+        <div class="time-item">
+            <p class="time-germany">{{ temperature !== null ? temperature + '°C' : '...' }}</p>
+        </div>
+
+        <h2 class="time-item">
+            <i class="bi bi-moisture clock"></i>
+        </h2>
+        
+        <div class="time-item">
+            <p class="time-peru">{{ humidity !== null ? humidity + '%' : '...' }}</p>
+        </div>
+    </div>
+
+    <br>
+
+    <h1 class="mt-4">
+        Offizielles Vorstellungsvideo von Cashibo 
+    </h1>
 
     <div class="video-container mt-4">
         <iframe 

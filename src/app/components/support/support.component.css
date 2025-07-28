@@ -35,3 +35,7 @@
 .kontakt-text{
     margin-left: 5px;
 }
+
+.kontakt-qr {
+    max-width: 100px; 
+}

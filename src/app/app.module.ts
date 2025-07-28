@@ -14,6 +14,7 @@ import { SupportComponent } from './components/support/support.component';
 import { FullscreenImageComponent } from './components/fullscreen-image/fullscreen-image.component';
 import { KontaktComponent } from './components/kontakt/kontakt.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,9 +33,11 @@ import { ImpressumComponent } from './components/impressum/impressum.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+      provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

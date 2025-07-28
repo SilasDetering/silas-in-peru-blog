@@ -1,6 +1,5 @@
 .location-page {
     text-align: center;
-    padding: 0 10%;
     color: #CAD2C5;
 }
 
@@ -35,7 +34,7 @@
     min-width: 400px;
     text-align: left;
     align-self: flex-start;
-
+    padding: 0 10%;
 }
 
 .image {
@@ -51,30 +50,39 @@
     display: flex;
     flex-direction: column; /* Für Handy-Displays: Items untereinander */
     align-items: center; /* Zentriert horizontal */
-    justify-content: center; /* Zentriert vertikal */
-    gap: 3rem;
+    justify-content: space-between;
+    gap: 0;
     text-align: center;
-    font-size: 30px;
-    max-width: 600px;
-    margin: 0 auto 75px auto;
-    background-color: #CAD2C5;
+    font-size: clamp(18px, 2vw, 22px);
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    background-color: #cad2c5;
     border-radius: 50px;
     color: #FF7474;
-}
-
-@media (min-width: 768px) {
-    .time-container {
-        flex-direction: row; /* Für größere Displays: Items nebeneinander */
-    }
+    flex-direction: row;
+    padding: 0 1.5rem;
 }
 
 .time-item {
+    margin-top: 7px;
+}
+
+.time-item p,
+.time-item span {
+    margin-bottom: 2px;
     display: flex;
     flex-direction: column; /* Text und Uhrzeit untereinander */
     align-items: center; /* Zentriert den Inhalt */
 }
 
+.time-difference {
+    font-size: clamp(20px, 3vw, 28px);
+    color: #FF7474;
+    font-weight: bold;
+}
+
 .clock{
-    font-size: 100px;
+    font-size: clamp(38px, 6vw, 70px);
     color: #FF7474;
 }
