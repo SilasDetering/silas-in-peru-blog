@@ -9,6 +9,7 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent {
   title: string = 'Silas in Peru';
+  picture: string = 'assets/img/pexels-julia-volk-5198219.jpg';
 
   constructor(private router: Router) {}
 
@@ -18,7 +19,7 @@ export class AppComponent {
       .subscribe((event: any) => {
         switch (event.urlAfterRedirects) {
           case '/':
-            this.title = 'Silas in Peru';
+            this.title = 'Blog';
             break;
           case '/über-mich':
             this.title = 'Silas Detering';

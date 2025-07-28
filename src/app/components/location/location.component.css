@@ -57,6 +57,9 @@
     font-size: 30px;
     max-width: 600px;
     margin: 0 auto 75px auto;
+    background-color: #CAD2C5;
+    border-radius: 50px;
+    color: #FF7474;
 }
 
 @media (min-width: 768px) {

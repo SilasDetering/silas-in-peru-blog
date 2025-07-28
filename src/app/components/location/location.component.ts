@@ -13,9 +13,9 @@ export class LocationComponent implements OnInit {
   }
 
   updateTime(): void {
-    const germanyTime = new Date().toLocaleTimeString('de-DE', { timeZone: 'Europe/Berlin', hour12: false });
-    const peruTime = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima', hour12: false });
-
+    const germanyTime = new Date().toLocaleTimeString('de-DE', { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit', hour12: false });
+    const peruTime = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima', hour: '2-digit', minute: '2-digit', hour12: false });
+    
     const germanyElement = document.getElementById('time-germany');
     const peruElement = document.getElementById('time-peru');
 
