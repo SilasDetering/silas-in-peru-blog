@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'bilder', component: GalleryComponent },
   { path: 'bilder/fullscreen/:image', component: FullscreenImageComponent },
   { path: 'impressum', component: ImpressumComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

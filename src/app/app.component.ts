@@ -18,7 +18,7 @@ export class AppComponent {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
         switch (event.urlAfterRedirects) {
-          case '/':
+          case '/home':
             this.title = 'Blog';
             break;
           case '/über-mich':
