@@ -1,3 +1,17 @@
+.kontakt-info-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.kontakt-note {
+  font-size: 0.95rem;
+  color: #CAD2C5;
+  opacity: 0.8;
+  align-self: center;
+}
+
 .page {
     margin: 5% 0 0 0;
     text-align: center;
@@ -22,4 +36,18 @@
     font-size: 2.5rem;
     margin-right: 1rem;
     color: #FF7474;
+}
+
+/* Info-Block für Instagram-Name und Notiz */
+.kontakt-info-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kontakt-note {
+  font-size: 0.95rem;
+  color: #CAD2C5;
+  opacity: 0.8;
+  margin-top: 0.1rem;
 }
