@@ -1,3 +1,8 @@
+a.kontakt-row, a.kontakt-row:visited, a.kontakt-row:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 .kontakt-info-block {
   display: flex;
   flex-direction: column;
