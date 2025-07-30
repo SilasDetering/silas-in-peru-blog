@@ -29,7 +29,7 @@ import { provideHttpClient } from '@angular/common/http';
     SupportComponent,
     FullscreenImageComponent,
     KontaktComponent,
-    ImpressumComponent
+    ImpressumComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,8 +20,17 @@ export class LocationComponent implements OnInit {
     this.weatherService.getCurrentWeather().subscribe(data => {
       if (data && data.current_weather) {
         this.temperature = data.current_weather.temperature;
-        this.humidity = data.current_weather.relative_humidity_2m;
         this.weatherIcon = this.getWeatherIcon(data.current_weather.weathercode, data.current_weather.time);
+        if (data.hourly && data.hourly.relative_humidity_2m && data.hourly.time && data.current_weather.time) {
+          const idx = data.hourly.time.indexOf(data.current_weather.time);
+          if (idx !== -1) {
+            this.humidity = data.hourly.relative_humidity_2m[idx];
+          } else {
+            this.humidity = null;
+          }
+        } else {
+          this.humidity = null;
+        }
       }
     });
   }
