@@ -10,7 +10,7 @@ import { ImpressumComponent } from './components/impressum/impressum.component';
 const routes: Routes = [
   { path: '', component: AboutMeComponent, pathMatch: 'full' }, // HomeComponent
   { path: 'home', component: HomeComponent },
-  { path: 'über-mich', component: AboutMeComponent },
+  { path: 'ueber-mich', component: AboutMeComponent },
   { path: 'einsatzort', component: LocationComponent },
   { path: 'bilder', component: GalleryComponent },
   { path: 'bilder/fullscreen/:image', component: FullscreenImageComponent },
