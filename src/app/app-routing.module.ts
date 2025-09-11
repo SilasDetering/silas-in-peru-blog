@@ -8,7 +8,7 @@ import { FullscreenImageComponent } from './components/fullscreen-image/fullscre
 import { ImpressumComponent } from './components/impressum/impressum.component';
 
 const routes: Routes = [
-  { path: '', component: AboutMeComponent, pathMatch: 'full' }, // HomeComponent
+  { path: '', component: HomeComponent, pathMatch: 'full' }, // HomeComponent
   { path: 'home', component: HomeComponent },
   { path: 'ueber-mich', component: AboutMeComponent },
   { path: 'einsatzort', component: LocationComponent },

@@ -18,4 +18,8 @@ export class GalleryComponent {
   openImage(image: string): void {
     this.router.navigate(['/bilder/fullscreen', image]);
   }
+
+  onLoadMore(){
+    
+  }
 }

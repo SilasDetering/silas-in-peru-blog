@@ -16,3 +16,11 @@
 .date {
     margin: 0;
 }
+
+.load-more {
+    margin-top: 50px;
+    text-align: center;
+    font-size: clamp(20px, 2vw, 30px);
+    cursor:pointer
+}
+

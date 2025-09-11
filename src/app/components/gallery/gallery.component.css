@@ -68,3 +68,10 @@
     margin: 20px 0 -5px 0;
     font-size: 50px;
 }
+
+.load-more {
+    margin-top: 50px;
+    text-align: center;
+    font-size: clamp(20px, 2vw, 30px);
+    cursor:pointer;
+}
