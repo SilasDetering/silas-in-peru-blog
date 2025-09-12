@@ -15,6 +15,7 @@ import { FullscreenImageComponent } from './components/fullscreen-image/fullscre
 import { KontaktComponent } from './components/kontakt/kontakt.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { provideHttpClient } from '@angular/common/http';
+import { Sept11BlogComponent } from './blog-pages/sept-11-blog/sept-11-blog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { provideHttpClient } from '@angular/common/http';
     FullscreenImageComponent,
     KontaktComponent,
     ImpressumComponent,
+    Sept11BlogComponent,
   ],
   imports: [
     BrowserModule,
