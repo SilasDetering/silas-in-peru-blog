@@ -1,14 +1,16 @@
 <div class="blog-page">
 
-        <ng-container *ngFor="let comp of blogComponents | slice:0:visibleCount">
-            <ng-container *ngComponentOutlet="comp"></ng-container>
-        </ng-container>
+    <ng-container *ngFor="let comp of blogComponents | slice:0:visibleCount">
+        <ng-container *ngComponentOutlet="comp"></ng-container>
+    </ng-container>
 
-        <div class="load-more" *ngIf="visibleCount < blogComponents.length" (click)="onLoadMore()">
-            <div class="load-more-title">
-                Mehr Anzeigen
-            </div>
-            <img src="assets/icons/arrow_down.png" alt="Pfeil nach unten" class="load-more-icon"/>
+    <div class="load-more" *ngIf="visibleCount < blogComponents.length" (click)="onLoadMore()">
+        <div class="load-more-title">
+            Mehr Anzeigen
         </div>
+        <svg class="load-more-arrow" width="48" height="14" viewBox="0 0 48 14" fill="none">
+            <path d="M3 3L24 12L45 3" stroke="#CAD2C5" stroke-width="3" fill="none" stroke-linecap="round" />
+        </svg>
+    </div>
 
 </div>

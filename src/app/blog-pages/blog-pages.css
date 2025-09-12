@@ -40,6 +40,17 @@
     font-size: 1em;
     color: #CAD2C5;
     cursor: default;
+    text-decoration: none;
+}
+
+/* Verhindere Link-typische Styles für .meta-item Links */
+a.meta-item {
+    color: #CAD2C5;
+    text-decoration: none;
+}
+a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
+    color: #CAD2C5;
+    text-decoration: none;
 }
 .meta-item i {
     font-size: 1.1em;
@@ -154,4 +165,8 @@
         max-width: 85vw !important;
         max-height: 65vh !important;
     }
+}
+
+.pointer {
+    cursor: pointer;
 }

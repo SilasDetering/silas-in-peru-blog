@@ -7,15 +7,17 @@
     margin-top: 50px;
     text-align: center;
     font-size: clamp(15px, 1.5vw, 20px);
-    cursor:pointer
+    cursor: pointer
 }
-.load-more-icon {
-    width: clamp(75px, 2.0vw, 120px);
+
+.load-more-arrow {
     display: block;
     margin: 0 auto;
     transition: transform 0.2s;
-}
-.load-more:hover .load-more-icon {
-    transform: translateY(8px);
+    width: clamp(40px, 2.5vw, 60px);
+    height: auto;
 }
 
+.load-more:hover .load-more-arrow {
+    transform: translateY(8px);
+}

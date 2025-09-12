@@ -9,7 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class Okt11BlogComponent {
 
   URL1 = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
-  URL2 = 'https://www.youtube.com/embed/1La4QzGeaaQ';
+  URL2 = 'https://www.youtube.com/embed/hfsD4ZT5mAw';
 
   youtubeHorizontal: SafeResourceUrl;
   youtubeVertical: SafeResourceUrl;
