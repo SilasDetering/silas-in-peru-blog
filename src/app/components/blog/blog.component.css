@@ -1,3 +1,63 @@
+/* Bild unten rechts, Text läuft unter Bild weiter */
+.blog-float-image-bottom-right {
+    float: right;
+    clear: right;
+    width: clamp(200px, 40%, 400px);
+    margin: 1em 0 0 2em;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+@media (max-width: 900px) {
+    .blog-float-image-bottom-right {
+        float: none;
+        display: block;
+        margin: 1em auto 0 auto;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* Bild unten links, Text läuft unter Bild weiter */
+.blog-float-image-bottom-left {
+    float: left;
+    clear: left;
+    width: clamp(200px, 40%, 400px);
+    margin: 1em 2em 0 0;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+@media (max-width: 900px) {
+    .blog-float-image-bottom-left {
+        float: none;
+        display: block;
+        margin: 1em auto 0 auto;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+.blog-float-wrap {
+    width: 100%;
+    margin-bottom: 2em;
+    overflow: hidden;
+}
+
+.blog-float-text {
+    font-size: clamp(15px, 1.2vw, 20px);
+    /* optional: overflow: hidden; */
+}
+@media (max-width: 900px) {
+    .blog-float-image {
+        float: none;
+        display: block;
+        margin: 0 auto 1em auto;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
 .blog-page {
     padding: 0 10%;
     color: #CAD2C5;
@@ -5,6 +65,51 @@
 
 .blog-post {
     margin-top: 50px;
+}
+
+.blog-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 2em;
+    margin-bottom: 2em;
+}
+.blog-row-1 .blog-text {
+    order: 1;
+}
+.blog-row-1 .blog-image-container {
+    order: 2;
+}
+.blog-row-2 .blog-image-container {
+    order: 1;
+}
+.blog-row-2 .blog-text {
+    order: 2;
+}
+.blog-image-container {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blog-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.blog-text {
+    flex: 2 1 60%;
+    font-size: clamp(15px, 1.2vw, 20px);
+}
+@media (max-width: 900px) {
+    .blog-row {
+        flex-direction: column;
+        gap: 1em;
+    }
+    .blog-image-container, .blog-text {
+        flex: unset;
+    }
 }
 
 .spacer{
@@ -25,11 +130,7 @@
 }
 
 .load-more-icon {
-    width: 8%;
-}
-
-.load-more-icon {
-    width: 8%;
+    width: clamp(75px, 2.0vw, 120px);
     display: block;
     margin: 0 auto;
     transition: transform 0.2s;
