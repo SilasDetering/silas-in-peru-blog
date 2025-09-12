@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
 })
 export class BlogComponent {
 
+  visibleCount: number = 2;
+
   onLoadMore(){
-    
+    this.visibleCount += 2;
   }
 
 }

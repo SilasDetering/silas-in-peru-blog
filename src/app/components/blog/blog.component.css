@@ -20,7 +20,21 @@
 .load-more {
     margin-top: 50px;
     text-align: center;
-    font-size: clamp(20px, 2vw, 30px);
+    font-size: clamp(15px, 1.5vw, 20px);
     cursor:pointer
+}
+
+.load-more-icon {
+    width: 8%;
+}
+
+.load-more-icon {
+    width: 8%;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.2s;
+}
+.load-more:hover .load-more-icon {
+    transform: translateY(8px);
 }
 
