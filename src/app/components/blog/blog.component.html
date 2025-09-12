@@ -1,12 +1,14 @@
 <div class="blog-page">
 
-    <app-sept-11-blog></app-sept-11-blog>
+        <ng-container *ngFor="let comp of blogComponents | slice:0:visibleCount">
+            <ng-container *ngComponentOutlet="comp"></ng-container>
+        </ng-container>
 
-    <div class="load-more" (click)="onLoadMore()">
-        <div class="load-more-title">
-            Mehr Anzeigen
+        <div class="load-more" *ngIf="visibleCount < blogComponents.length" (click)="onLoadMore()">
+            <div class="load-more-title">
+                Mehr Anzeigen
+            </div>
+            <img src="assets/icons/arrow_down.png" alt="Pfeil nach unten" class="load-more-icon"/>
         </div>
-        <img src="assets/icons/arrow_down.png" alt="Pfeil nach unten" class="load-more-icon"/>
-    </div>
 
 </div>

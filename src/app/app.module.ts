@@ -16,6 +16,7 @@ import { KontaktComponent } from './components/kontakt/kontakt.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { provideHttpClient } from '@angular/common/http';
 import { Sept11BlogComponent } from './blog-pages/sept-11-blog/sept-11-blog.component';
+import { Okt11BlogComponent } from './blog-pages/okt-11-blog/okt-11-blog.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { Sept11BlogComponent } from './blog-pages/sept-11-blog/sept-11-blog.comp
     KontaktComponent,
     ImpressumComponent,
     Sept11BlogComponent,
+    Okt11BlogComponent
   ],
   imports: [
     BrowserModule,

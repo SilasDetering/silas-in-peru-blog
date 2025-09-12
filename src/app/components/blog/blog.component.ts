@@ -1,29 +1,25 @@
-import { Component } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Component, Type } from '@angular/core';
+import { Sept11BlogComponent } from '../../blog-pages/sept-11-blog/sept-11-blog.component';
+import { Okt11BlogComponent } from '../../blog-pages/okt-11-blog/okt-11-blog.component';
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrl: './blog.component.css'
+  styleUrls: ['./blog.component.css']
 })
 export class BlogComponent {
-  visibleCount: number = 2;
 
-  // Beispiel-URLs für horizontale und vertikale YouTube-Videos
-  youtubeHorizontal: SafeResourceUrl;
-  youtubeVertical: SafeResourceUrl;
+  blogComponents: Type<any>[] = [
+    // weitere Komponenten hier ergänzen, neueste zuerst
+    Okt11BlogComponent,
+    Sept11BlogComponent,
+  ];
 
-  constructor(private sanitizer: DomSanitizer) {
-    // Beispiel-IDs, bitte durch echte ersetzen
-    this.youtubeHorizontal = this.sanitizeYoutube('https://www.youtube.com/embed/dQw4w9WgXcQ');
-    this.youtubeVertical = this.sanitizeYoutube('https://www.youtube.com/embed/1La4QzGeaaQ');
-  }
+  visibleCount = 1;
 
-  sanitizeYoutube(url: string): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  }
-
-  onLoadMore(){
-    this.visibleCount += 2;
+  onLoadMore() {
+    if (this.visibleCount < this.blogComponents.length) {
+      this.visibleCount++;
+    }
   }
 }

@@ -39,6 +39,7 @@
     gap: 0.4em;
     font-size: 1em;
     color: #CAD2C5;
+    cursor: default;
 }
 .meta-item i {
     font-size: 1.1em;
