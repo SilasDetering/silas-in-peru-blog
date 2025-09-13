@@ -1,21 +1,17 @@
 import { Injectable } from '@angular/core';
+import images from '../../assets/fotos/images.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImagesService {
+  private imageData: { [key: string]: string[] } = images as any;
 
-  constructor() { }
+  getFolders(): string[] {
+    return Object.keys(this.imageData);
+  }
 
-    images: string[] = [
-    'assets/fotos/PXL_20240726_110800595.jpg',
-    'assets/fotos/PXL_20240726_142318179.jpg',
-    'assets/fotos/PXL_20240727_164913269.jpg',
-    'assets/fotos/PXL_20240728_050531932.jpg',
-    'assets/fotos/PXL_20240727_194145017.MP.jpg',
-    'assets/fotos/PXL_20240728_050531932.jpg',
-    'assets/fotos/PXL_20240728_122812523.MP.jpg',
-    'assets/fotos/PXL_20240728_191633309.NIGHT.jpg',
-    'assets/fotos/PXL_20240729_184043086.jpg',
-  ];
+  getImagesByFolder(folder: string): string[] {
+    return this.imageData[folder] || [];
+  }
 }

@@ -11,7 +11,6 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { LocationComponent } from './components/location/location.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SupportComponent } from './components/support/support.component';
-import { FullscreenImageComponent } from './components/fullscreen-image/fullscreen-image.component';
 import { KontaktComponent } from './components/kontakt/kontakt.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { provideHttpClient } from '@angular/common/http';
@@ -29,7 +28,6 @@ import { Okt11BlogComponent } from './blog-pages/okt-11-blog/okt-11-blog.compone
     LocationComponent,
     FooterComponent,
     SupportComponent,
-    FullscreenImageComponent,
     KontaktComponent,
     ImpressumComponent,
     Sept11BlogComponent,

@@ -1,25 +1,23 @@
 <div class="gallery-page">
 
-  <p class="date">September</p>
-  <hr class="spacer">
-  
-  <div class="gallery">
-    <div class="gallery-item" *ngFor="let image of images" (click)="openImage(image)">
-      <img [src]="image" alt="Gallery Image" />
-    </div>
-  </div>
+  <div *ngFor="let folder of folders">
+    <p class="date">{{ folder.name }}</p>
+    <hr class="spacer">
 
-  <p class="date">August</p>
-  <hr class="spacer">
-
-  <div class="gallery">
-    <div class="gallery-item" *ngFor="let image of images" (click)="openImage(image)">
-      <img [src]="image" alt="Gallery Image" />
+    <div class="gallery">
+      <div class="gallery-item"
+           *ngFor="let image of folder.images"
+           (click)="openImage(image)">
+        <img [src]="image" alt="Gallery Image" loading="lazy"/>
+      </div>
     </div>
   </div>
 
   <div class="load-more" (click)="onLoadMore()">
-    <p class="load-more-title"> Mehr Anzeigen </p>
+    <div class="load-more-title">Mehr Anzeigen</div>
+    <svg class="load-more-arrow" width="48" height="14" viewBox="0 0 48 14" fill="none">
+      <path d="M3 3L24 12L45 3" stroke="#CAD2C5" stroke-width="3" fill="none" stroke-linecap="round" />
+    </svg>
   </div>
 
 </div>

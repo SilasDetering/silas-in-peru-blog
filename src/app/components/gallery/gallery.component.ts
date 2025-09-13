@@ -1,25 +1,28 @@
 import { Component } from '@angular/core';
 import { ImagesService } from '../../services/images.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrl: './gallery.component.css'
+  styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent {
 
-  constructor(private imagesService: ImagesService, private router: Router) {
-    this.images = this.imagesService.images;
-  }
+  folders: { name: string; images: string[] }[] = [];
 
-  images: string[] = [];
+  constructor(private imagesService: ImagesService) {
+    const folderNames = this.imagesService.getFolders();
+    this.folders = folderNames.map(name => ({
+      name,
+      images: this.imagesService.getImagesByFolder(name)
+    }));
+  }
 
   openImage(image: string): void {
-    this.router.navigate(['/bilder/fullscreen', image]);
+    console.log('Bild geöffnet:', image);
   }
 
-  onLoadMore(){
-    
+  onLoadMore(): void {
+    console.log('Mehr Bilder laden...');
   }
 }

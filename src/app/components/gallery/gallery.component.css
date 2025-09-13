@@ -57,7 +57,6 @@
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
-
 .spacer{
     border: 2px solid #CAD2C5;
     margin: 0 auto 10px auto;
@@ -66,12 +65,24 @@
 
 .date {
     margin: 20px 0 -5px 0;
-    font-size: 50px;
+    font-size: clamp(10px, 2.0vw, 50px);
 }
 
 .load-more {
     margin-top: 50px;
     text-align: center;
-    font-size: clamp(20px, 2vw, 30px);
-    cursor:pointer;
+    font-size: clamp(15px, 1.5vw, 20px);
+    cursor: pointer
+}
+
+.load-more-arrow {
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.2s;
+    width: clamp(40px, 2.5vw, 60px);
+    height: auto;
+}
+
+.load-more:hover .load-more-arrow {
+    transform: translateY(8px);
 }
