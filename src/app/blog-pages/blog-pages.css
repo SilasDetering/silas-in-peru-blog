@@ -14,7 +14,7 @@
     overflow: hidden;
 }
 .blog-float-text {
-    font-size: clamp(15px, 1.2vw, 20px);
+    font-size: clamp(15px, 2.0vw, 20px);
     /* optional: overflow: hidden; */
 }
 @media (max-width: 900px) {
