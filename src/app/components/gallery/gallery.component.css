@@ -23,6 +23,52 @@
     padding-top: 100%;
 }
 
+/* overlay that darkens on hover */
+.gallery-item .hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    transition: background 220ms ease;
+    pointer-events: none;
+    z-index: 2; /* ensure overlay is above the image */
+}
+
+/* caption text */
+.gallery-item .caption {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    color: #fff;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 220ms ease, transform 220ms ease;
+    pointer-events: none;
+    z-index: 3; /* caption above overlay */
+    /* background removed so only the image is darkened */
+    background: transparent;
+    padding: 8px 10px;
+    /* keep slight rounding optional, but no opaque background */
+    border-radius: 6px;
+    max-height: 30vh;
+    overflow: auto;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.75); /* improve contrast over darkened image */
+}
+
+/* on hover show overlay + caption */
+.gallery-item:hover .hover-overlay,
+.gallery-item.show-caption .hover-overlay {
+    background: rgba(0,0,0,0.45);
+}
+.gallery-item:hover .caption,
+.gallery-item.show-caption .caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ensure image still scales on hover */
 .gallery-item img {
     position: absolute;
     top: 0;
@@ -30,12 +76,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    cursor: pointer;
     transition: transform 0.3s ease;
+    display: block;
+    z-index: 1;
 }
-
-.gallery-item img:hover {
-    transform: scale(1.1);
+.gallery-item:hover img {
+    transform: scale(1.06);
 }
 
 .spacer{
@@ -68,3 +114,20 @@
     transform: translateY(8px);
 }
 
+.note{
+    display: table; /* zentriert zuverlässig mit margin auto */
+    margin: 0 auto 20px; /* zentriert */
+    border: 2px solid #CAD2C5;
+    padding: 10px 12px 0 12px;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 80ch; /* so breit wie nötig, begrenzt für bessere Lesbarkeit */
+    width: auto;
+}
+
+/* smaller screens: allow wider relative width */
+@media (max-width: 700px) {
+    .note {
+        max-width: 90%;
+    }
+}

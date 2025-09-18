@@ -7,7 +7,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' }, // HomeComponent
+  { path: '', component: AboutMeComponent, pathMatch: 'full' }, // HomeComponent
   { path: 'home', component: HomeComponent },
   { path: 'ueber-mich', component: AboutMeComponent },
   { path: 'einsatzort', component: LocationComponent },

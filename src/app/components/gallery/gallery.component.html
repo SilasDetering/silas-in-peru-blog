@@ -1,18 +1,23 @@
 <div class="gallery-page">
 
+  <div class="note">
+    <p>Hier findest du eine Auswahl meiner Fotos. Am besten schaust du dir die Bilder auf dem Computer an.</p>
+  </div>
+
   <div *ngFor="let folder of folders">
     <p class="date">{{ folder.name }}</p>
     <hr class="spacer">
 
     <div class="gallery">
-      <div class="gallery-item"
-           *ngFor="let image of folder.images"
-           (click)="openImage(image)">
-        <img [src]="image" alt="Gallery Image" loading="lazy"/>
+      <div class="gallery-item" *ngFor="let image of folder.images">
+        <img [src]="image.url" alt="Gallery Image" loading="lazy" />
+        <div class="hover-overlay"></div>
+        <div class="caption" *ngIf="image.comment">{{ image.comment }}</div>
       </div>
     </div>
   </div>
 
+  <!-- optional: Load more block kept commented out -->
   <!--
   <div class="load-more" (click)="onLoadMore()">
     <div class="load-more-title">Mehr Anzeigen</div>
