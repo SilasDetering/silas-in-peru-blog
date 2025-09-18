@@ -1,36 +1,16 @@
 <div class="blog-page">
 
-    <div class="blog-post">
-        <p class="date">September, 21.09.2025</p>
-        <hr class="spacer">
+    <ng-container *ngFor="let comp of blogComponents | slice:0:visibleCount">
+        <ng-container *ngComponentOutlet="comp"></ng-container>
+    </ng-container>
 
-        Hallo, ich bin ein Blogbeitrag. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-        Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-        Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-        Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-
-    </div>
-
-    <div class="blog-post">
-        <p class="date">Oktober, 21.09.2025</p>
-        <hr class="spacer">
-
-        Hallo, ich bin ein Blogbeitrag. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-        Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-        Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-        Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-
-    </div>
-
-    <div class="blog-post">
-        <p class="date">November, 21.09.2025</p>
-        <hr class="spacer">
-
-        Hallo, ich bin ein Blogbeitrag. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-        Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-        Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-        Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte. Ich bin ein Platzhaltertext, der dazu dient, den Blog zu füllen. Ich bin hier, um Ihnen zu zeigen, wie der Blog aussieht und wie er funktioniert. Ich bin ein Beispieltext, der Ihnen hilft, sich vorzustellen, wie Ihr Blog aussehen könnte.
-
+    <div class="load-more" *ngIf="visibleCount < blogComponents.length" (click)="onLoadMore()">
+        <div class="load-more-title">
+            Mehr Anzeigen
+        </div>
+        <svg class="load-more-arrow" width="48" height="14" viewBox="0 0 48 14" fill="none">
+            <path d="M3 3L24 12L45 3" stroke="#CAD2C5" stroke-width="3" fill="none" stroke-linecap="round" />
+        </svg>
     </div>
 
 </div>

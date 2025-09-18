@@ -9,7 +9,7 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent {
   title: string = 'Silas in Peru';
-  picture: string = 'pexels-julia-volk-5198219.jpg';
+  picture: string = 'colca_canyon.JPG';
 
   constructor(private router: Router) {}
 
@@ -21,11 +21,11 @@ export class AppComponent {
         switch (event.urlAfterRedirects) {
           case '/home':
             this.title = 'Blog';
-            this.picture = 'pexels-julia-volk-5198219.jpg';
+            this.picture = 'colca_canyon.JPG';
             break;
           case '/ueber-mich':
             this.title = 'Silas Detering';
-            this.picture = 'tingo-maria.jpeg';
+            this.picture = 'gruppenfoto_salitas.JPG';
             break;
           case '/einsatzort':
             this.title = 'Cashibo';
@@ -33,11 +33,11 @@ export class AppComponent {
             break;
           case '/bilder':
             this.title = 'Galerie';
-            this.picture = 'pexels-julia-volk-5198219.jpg';
+            this.picture = 'salitas.jpeg';
             break;
           default:
             this.title = 'Silas in Peru';
-            this.picture = 'pexels-julia-volk-5198219.jpg';
+            this.picture = 'colca_canyon.JPG';
         }
       });
   }

@@ -10,6 +10,7 @@
 .about-me-text {
     flex: 1 1 60%;
     color: #CAD2C5;
+    font-size: clamp(15px, 2.0vw, 20px);
 }
 
 .about-me-image-container {

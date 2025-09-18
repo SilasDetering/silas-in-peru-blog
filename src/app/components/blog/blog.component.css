@@ -3,16 +3,21 @@
     color: #CAD2C5;
 }
 
-.blog-post {
+.load-more {
     margin-top: 50px;
+    text-align: center;
+    font-size: clamp(15px, 1.5vw, 20px);
+    cursor: pointer
 }
 
-.spacer{
-    border: 1px solid #CAD2C5;
-    margin: 0 auto 20px auto;
-    opacity: 0.8;
+.load-more-arrow {
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.2s;
+    width: clamp(40px, 2.5vw, 60px);
+    height: auto;
 }
 
-.date {
-    margin: 0;
+.load-more:hover .load-more-arrow {
+    transform: translateY(8px);
 }

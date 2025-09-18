@@ -1,0 +1,172 @@
+.blog-post {
+    margin-top: 50px;
+}
+
+.spacer{
+    border: 1px solid #CAD2C5;
+    margin: 0 auto 20px auto;
+    opacity: 0.8;
+}
+
+.blog-float-wrap {
+    width: 100%;
+    margin-bottom: 2em;
+    overflow: hidden;
+}
+.blog-float-text {
+    font-size: clamp(15px, 2.0vw, 20px);
+    /* optional: overflow: hidden; */
+}
+@media (max-width: 900px) {
+    .blog-float-image {
+        float: none;
+        display: block;
+        margin: 0 auto 1em auto;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    margin-bottom: 0.2em;
+}
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: 1em;
+    color: #CAD2C5;
+    cursor: default;
+    text-decoration: none;
+}
+
+/* Verhindere Link-typische Styles für .meta-item Links */
+a.meta-item {
+    color: #CAD2C5;
+    text-decoration: none;
+}
+a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
+    color: #CAD2C5;
+    text-decoration: none;
+}
+.meta-item i {
+    font-size: 1.1em;
+    vertical-align: middle;
+    color: #CAD2C5;
+    opacity: 0.85;
+}
+.date, .location {
+    margin: 0;
+    font-size: 1em;
+    color: #CAD2C5;
+}
+.date, .location {
+    margin: 0;
+}
+
+/* Spezielle Größe für hochkantige Bilder */
+.blog-float-image-portrait {
+    max-width: 210px;
+    max-height: 400px;
+}
+@media (max-width: 900px) {
+    .blog-float-image-portrait {
+        max-width: 85vw;
+        max-height: 65vh;
+    }
+}
+
+/* Bild rechts */
+.blog-float-image-right {
+    float: right;
+    clear: right;
+    width: clamp(210px, 45%, 420px);
+    margin: 1em 0 0.4em 2em;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+@media (max-width: 900px) {
+    .blog-float-image-right {
+        float: none;
+        display: block;
+        margin: 1em auto 1em auto;
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+/* Bild links */
+.blog-float-image-left {
+    float: left;
+    clear: left;
+    width: clamp(210px, 45%, 420px);
+    margin: 1em 2em 0.4em 0;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+@media (max-width: 900px) {
+    .blog-float-image-left {
+        float: none;
+        display: block;
+        margin: 1em auto 1em auto;
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+/* YouTube Video links */
+.blog-float-video-left {
+    float: left;
+    clear: left;
+    margin: 1em 2em 0.4em 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    background: #000;
+}
+@media (max-width: 900px) {
+    .blog-float-video-left {
+        float: none;
+        display: block;
+        margin: 1em auto 1em auto;
+        width: 100% !important;
+        max-width: 420px;
+        height: auto !important;
+    }
+}
+
+/* YouTube Video horizontal und vertikal */
+.blog-float-video-right {
+    float: right;
+    clear: right;
+    margin: 1em 0 0 2em;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    background: #000;
+}
+.blog-float-video-portrait {
+    width: 210px !important;
+    height: 400px !important;
+}
+@media (max-width: 900px) {
+    .blog-float-video-right {
+        float: none;
+        display: block;
+        margin: 1em auto 1em auto;
+        width: 100% !important;
+        max-width: 420px;
+        height: auto !important;
+    }
+    .blog-float-video-portrait {
+        max-width: 85vw !important;
+        max-height: 65vh !important;
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}
