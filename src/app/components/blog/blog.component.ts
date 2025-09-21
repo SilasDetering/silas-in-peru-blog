@@ -1,6 +1,5 @@
 import { Component, Type } from '@angular/core';
-import { Sept11BlogComponent } from '../../blog-pages/sept-11-blog/sept-11-blog.component';
-import { Okt11BlogComponent } from '../../blog-pages/okt-11-blog/okt-11-blog.component';
+import { Sept20BlogComponent } from '../../blog-pages/sept-20-blog/sept-20-blog.component';
 
 @Component({
   selector: 'app-blog',
@@ -11,8 +10,7 @@ export class BlogComponent {
 
   blogComponents: Type<any>[] = [
     // weitere Komponenten hier ergänzen, neueste zuerst
-    Okt11BlogComponent,
-    Sept11BlogComponent,
+    Sept20BlogComponent,
   ];
 
   visibleCount = 1;

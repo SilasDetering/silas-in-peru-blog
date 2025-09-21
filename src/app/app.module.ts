@@ -14,8 +14,7 @@ import { SupportComponent } from './components/support/support.component';
 import { KontaktComponent } from './components/kontakt/kontakt.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { provideHttpClient } from '@angular/common/http';
-import { Sept11BlogComponent } from './blog-pages/sept-11-blog/sept-11-blog.component';
-import { Okt11BlogComponent } from './blog-pages/okt-11-blog/okt-11-blog.component';
+import { Sept20BlogComponent } from './blog-pages/sept-20-blog/sept-20-blog.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +29,7 @@ import { Okt11BlogComponent } from './blog-pages/okt-11-blog/okt-11-blog.compone
     SupportComponent,
     KontaktComponent,
     ImpressumComponent,
-    Sept11BlogComponent,
-    Okt11BlogComponent
+    Sept20BlogComponent,
   ],
   imports: [
     BrowserModule,
