@@ -18,9 +18,10 @@ export class LocationComponent implements OnInit {
     setInterval(() => this.updateTime(), 1000); // Aktualisiere jede Sekunde
     
     this.weatherService.getCurrentWeather().subscribe(data => {
+      console.log('Weather data:', data);
       if (data && data.current_weather) {
         this.temperature = data.current_weather.temperature;
-        this.weatherIcon = this.getWeatherIcon(data.current_weather.weathercode, data.current_weather.time);
+        this.weatherIcon = this.getWeatherIcon(data.current_weather.weathercode);
         if (data.hourly && data.hourly.relative_humidity_2m && data.hourly.time && data.current_weather.time) {
           const idx = data.hourly.time.indexOf(data.current_weather.time);
           if (idx !== -1) {
@@ -35,17 +36,11 @@ export class LocationComponent implements OnInit {
     });
   }
 
-  getWeatherIcon(code: number, isoTime?: string): string {
-    // Nachtlogik: Zeige Mond-Icon zwischen 19 und 6 Uhr
-    let hour = -1;
-    if (isoTime) {
-      // Zeit in Zeitzone Peru berechnen
-      const utcDate = new Date(isoTime);
-      // Hole die Stunde in Peru
-      const peruHourStr = utcDate.toLocaleString('de-DE', { timeZone: 'America/Lima', hour: '2-digit', hour12: false });
-      hour = parseInt(peruHourStr, 10);
-    }
-    const isNight = hour >= 19 || hour < 6;
+  getWeatherIcon(code: number): string {
+    const peruTime = new Date().toLocaleTimeString('es-PE', { timeZone: 'America/Lima', hour: '2-digit', hour12: false });
+    const hour = parseInt(peruTime, 10);
+    console.log(hour);
+    const isNight = hour >= 18 || hour < 6;
     if ([0].includes(code)) return isNight ? 'bi-moon' : 'bi-sun'; // Klar
     if ([1,2,3].includes(code)) return isNight ? 'bi-cloud-moon' : 'bi-cloud-sun'; // Teilweise bewölkt
     if ([45,48].includes(code)) return 'bi-cloud-fog2'; // Nebel
