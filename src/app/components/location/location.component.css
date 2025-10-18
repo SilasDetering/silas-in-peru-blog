@@ -101,3 +101,16 @@
 .number {
     font-size: clamp(25px, 4vw, 30px);
 }
+
+.foto-gallery {
+    margin-top: clamp(8px, 3.5vh, 48px);    /* klein auf Smartphones, größer auf Laptops */
+    margin-bottom: clamp(24px, 6vh, 100px); /* etwas flexiblerer Abstand nach unten */
+}
+
+/* auf sehr kleinen Bildschirmen noch enger */
+@media (max-width: 480px) {
+  .foto-gallery {
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+}

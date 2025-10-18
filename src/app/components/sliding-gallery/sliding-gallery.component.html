@@ -1,0 +1,36 @@
+<div class="sliding-gallery" *ngIf="images.length > 0; else noImages" style="position:relative; display:flex; align-items:center; justify-content:center; width:100%;">
+  <div class="image-wrapper" style="position:relative; display:flex; align-items:center; justify-content:center; width:100%; max-width:980px; padding:0 48px;">
+    <!-- Left arrow: absolut links, vertikal zentriert -->
+    <!-- Bootstrap button mit Icon -->
+    <button class="arrow left btn btn-light" (click)="prev()" aria-label="Vorheriges Bild" title="Vorheriges"
+            style="position:absolute; left:8px; top:50%; transform:translateY(-50%); z-index:10;
+                   border:1px solid rgba(0,0,0,0.08); 
+                   padding:8px 12px; font-size:28px; border-radius:50%; cursor:pointer;
+                   box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+      <i class="bi bi-chevron-left" aria-hidden="true"></i>
+    </button>
+
+    <!-- Main image: zentriert, mit max-height damit Hochkant-Bilder nicht herausragen -->
+    <img 
+      [src]="images[currentIndex].url"
+      [alt]="images[currentIndex].comment || images[currentIndex].filename"
+      style="max-height:70vh; max-width:100%; width:auto; height:auto; object-fit:contain; display:block; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.12);" />
+
+    <!-- Right arrow: absolut rechts, vertikal zentriert -->
+    <button class="arrow right btn btn-light" (click)="next()" aria-label="Nächstes Bild" title="Nächstes"
+            style="position:absolute; right:8px; top:50%; transform:translateY(-50%); z-index:10;
+                   border:1px solid rgba(0,0,0,0.08); 
+                   padding:8px 12px; font-size:28px; border-radius:50%; cursor:pointer;
+                   box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+      <i class="bi bi-chevron-right" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="caption" *ngIf="images[currentIndex].comment" style="margin-top:8px; text-align:center;">
+    {{ images[currentIndex].comment }}
+  </div>
+</div>
+
+<ng-template #noImages>
+  <div class="no-images" style="color:#666; padding:12px;">Keine Bilder verfügbar.</div>
+</ng-template>

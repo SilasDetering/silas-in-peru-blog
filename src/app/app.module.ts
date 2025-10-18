@@ -15,6 +15,7 @@ import { KontaktComponent } from './components/kontakt/kontakt.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { provideHttpClient } from '@angular/common/http';
 import { Sept20BlogComponent } from './blog-pages/sept-20-blog/sept-20-blog.component';
+import { SlidingGalleryComponent } from './components/sliding-gallery/sliding-gallery.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { Sept20BlogComponent } from './blog-pages/sept-20-blog/sept-20-blog.comp
     KontaktComponent,
     ImpressumComponent,
     Sept20BlogComponent,
+    SlidingGalleryComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,104 @@
+.sliding-gallery {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  height: clamp(350px, 80vh, 1000px);
+}
+
+/* wrapper sorgt dafür, dass das Bild zentriert ist und die Pfeile relativ zum Bild positioniert werden */
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Bild: max-height verhindert dass Hochkant-Bilder aus dem Viewport ragen */
+.image-wrapper img {
+  display: block;
+  max-height: 70vh;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  cursor: pointer;
+}
+
+/* Pfeile: nutzen Bootstrap btn* Klassen, zusätzlich eigenes Styling */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  color: #111;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 140ms ease, background 140ms ease, box-shadow 140ms ease;
+  z-index: 12;
+  border: none; /* btn-Klasse überschreiben, falls nötig */
+}
+
+/* leichte Anpassung der inneren icon */
+.arrow i {
+  font-size: 20px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+/* Hover: stärker hervorheben */
+.arrow:hover {
+  transform: translateY(-50%) scale(1.06);
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.24);
+}
+
+/* Fokus-Ring für Tastaturzugänglichkeit */
+.arrow:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0,123,255,0.18), 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* links/rechts: halb über die Bildkante, sehr nah am Bild */
+.arrow.left {
+  left: -18px; /* dichter am Bild */
+  background-color: #52796F;
+}
+
+.arrow.right {
+  right: -18px; /* dichter am Bild */
+  background-color: #52796F;
+}
+
+/* kleinere Buttons auf sehr schmalen Displays */
+@media (max-width: 480px) {
+  .arrow { width: 40px; height: 40px; }
+  .arrow.left { left: -14px; }
+  .arrow.right { right: -14px; }
+}
+
+.caption {
+  margin-top: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: #52796F;
+}
+
+.no-images {
+  color: #666;
+  padding: 12px;
+}
