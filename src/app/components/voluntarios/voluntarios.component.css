@@ -35,3 +35,10 @@
     color: #CAD2C5;
     font-size: clamp(15px, 2.0vw, 20px);
 }
+
+.comment {
+    font-style: italic;
+    font-size: 0.95em;
+    color: #8FAEA3;      /* dezente, passende Akzentfarbe */
+    padding: 0 0.18em;   /* Abstand zu umliegendem Text */
+}

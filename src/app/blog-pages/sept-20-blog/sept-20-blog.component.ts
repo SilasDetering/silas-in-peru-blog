@@ -16,7 +16,7 @@ export class Sept20BlogComponent {
   youtubeVertical: SafeResourceUrl;
 
   // Bild für das HTML (immer in der HTML festgelegt, hier wird die CDN-URL bereitgestellt)
-  readonly cdnFolder = '09-arequipa';
+  readonly cdnFolder = 'Fotos';
   readonly image1Filename = '0FD23F59-0AE2-47F1-BF90-87C5E897E120.jpeg';
   readonly image2Filename = 'IMG_0538.jpeg';
   readonly image3Filename = '7B4ABAAE-5602-4EAF-B17C-4238CB9E7AAA.jpeg';
