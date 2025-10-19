@@ -10,11 +10,19 @@
       <i class="bi bi-chevron-left" aria-hidden="true"></i>
     </button>
 
-    <!-- Main image: zentriert, mit max-height damit Hochkant-Bilder nicht herausragen -->
+    <!-- Main image: zentriert, mit load/error events für Ladezustand -->
     <img 
       [src]="images[currentIndex].url"
       [alt]="images[currentIndex].comment || images[currentIndex].filename"
+      (load)="onImageLoad()"
+      (error)="onImageError()"
       style="max-height:70vh; max-width:100%; width:auto; height:auto; object-fit:contain; display:block; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.12);" />
+
+    <!-- Spinner-Overlay während das Bild lädt -->
+    <div *ngIf="isLoading" class="sg-spinner-overlay" aria-hidden="true">
+      <div class="sg-spinner-bg"></div>
+      <div class="sg-spinner" role="status" aria-label="Bild wird geladen"></div>
+    </div>
 
     <!-- Right arrow: absolut rechts, vertikal zentriert -->
     <button class="arrow right btn btn-light" (click)="next()" aria-label="Nächstes Bild" title="Nächstes"
@@ -26,7 +34,7 @@
     </button>
   </div>
 
-  <div class="caption" *ngIf="images[currentIndex].comment" style="margin-top:8px; text-align:center;">
+  <div class="caption" *ngIf="!isLoading && images[currentIndex].comment" style="margin-top:8px; text-align:center;">
     {{ images[currentIndex].comment }}
   </div>
 </div>
@@ -34,3 +42,35 @@
 <ng-template #noImages>
   <div class="no-images" style="color:#666; padding:12px;">Keine Bilder verfügbar.</div>
 </ng-template>
+
+<!-- Lokale Spinner-Styles -->
+<style>
+  .sg-spinner-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.0); /* nur zentrieren, kein komplettes Overlay */
+    z-index: 20;
+    pointer-events: none;
+  }
+  .sg-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(0,0,0,0.08);
+    border-top-color: rgba(0,0,0,0.35);
+    border-radius: 50%;
+    animation: sg-spin 0.9s linear infinite;
+    background: transparent;
+  }
+  @keyframes sg-spin { to { transform: rotate(360deg); } }
+  /* leichte Transparenz hinter dem Spinner auf mobilen Geräten */
+  .sg-spinner-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.0);
+    z-index: 19;
+    border-radius: 8px;
+  }
+</style>

@@ -10,6 +10,7 @@ export class SlidingGalleryComponent implements OnInit {
 
   images: { filename: string; url: string; thumbUrl: string; comment?: string }[] = [];
   currentIndex = 0;
+  isLoading = true;
 
   private readonly CDN_BASE = 'https://silas-in-peru-fotos.b-cdn.net';
   private readonly CDN_FOLDER = 'Fotos';
@@ -52,7 +53,16 @@ export class SlidingGalleryComponent implements OnInit {
       }
     });
 
-    // preload first neighbors
+    // Wenn keine Bilder da sind, kein Loading
+    if (!this.images.length) {
+      this.isLoading = false;
+      return;
+    }
+
+    // set loading true until the first image fires its load event
+    this.isLoading = true;
+
+    // preload first neighbors (will not block showing spinner for main image)
     this.preloadNeighborImages();
   }
 
@@ -69,23 +79,39 @@ export class SlidingGalleryComponent implements OnInit {
 
   prev(): void {
     if (!this.images.length) return;
+    this.isLoading = true;
     this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
     this.preloadNeighborImages();
   }
 
   next(): void {
     if (!this.images.length) return;
+    this.isLoading = true;
     this.currentIndex = (this.currentIndex + 1) % this.images.length;
     this.preloadNeighborImages();
   }
 
   setIndex(i: number): void {
     if (i < 0 || i >= this.images.length) return;
+    this.isLoading = true;
     this.currentIndex = i;
     this.preloadNeighborImages();
   }
 
   openCurrent(): void {}
+
+  onImageLoad(): void {
+    // Hauptbild ist geladen
+    this.isLoading = false;
+    // preloading neighbors after main image loaded
+    this.preloadNeighborImages();
+  }
+
+  onImageError(): void {
+    // vermeide endlosen Ladezustand bei Fehlern
+    this.isLoading = false;
+    // optional: console.warn('Fehler beim Laden des Bildes', this.images[this.currentIndex]);
+  }
 
   private preloadNeighborImages(): void {
     if (!this.images.length) return;
