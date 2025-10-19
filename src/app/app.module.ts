@@ -18,6 +18,7 @@ import { Sept20BlogComponent } from './blog-pages/sept-20-blog/sept-20-blog.comp
 import { SlidingGalleryComponent } from './components/sliding-gallery/sliding-gallery.component';
 import { ForumWiedenestComponent } from './components/forum-wiedenest/forum-wiedenest.component';
 import { VoluntariosComponent } from './components/voluntarios/voluntarios.component';
+import { Okt20BlogComponent } from './blog-pages/okt-20-blog/okt-20-blog.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { VoluntariosComponent } from './components/voluntarios/voluntarios.compo
     SlidingGalleryComponent,
     ForumWiedenestComponent,
     VoluntariosComponent,
+    Okt20BlogComponent,
   ],
   imports: [
     BrowserModule,
