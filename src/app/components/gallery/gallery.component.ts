@@ -12,7 +12,7 @@ export class GalleryComponent {
   folders: { name: string; images: { filename: string; url: string; comment?: string}[] }[] = [];
 
   private readonly CDN_BASE = 'https://silas-in-peru-fotos.b-cdn.net';
-  private readonly CDN_FOLDER = '09-arequipa';
+  private readonly CDN_FOLDER = 'Fotos';
   private readonly CDN_SMALL_SUBFOLDER = '800px';
 
   constructor(private imagesService: ImagesService) {

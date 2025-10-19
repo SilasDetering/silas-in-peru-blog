@@ -1,0 +1,84 @@
+.forum-wiedenest-page {
+    text-align: center;
+    color: #CAD2C5;
+    padding: 0 10%;
+}
+
+.header {
+    margin-top: 50px;
+    margin-bottom: 16px;
+}
+
+/* neues Intro-Layout: Logo links, Text rechts; logo streckt sich auf Texthöhe */
+.intro {
+    display: flex;
+    align-items: center; /* Logo zentriert vertikal neben dem Text */
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 0 auto 1rem auto;
+    max-width: 1100px;
+}
+
+/* Logo-Container */
+.logo {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* make the anchor not constrain the image and remove mobile tap highlight */
+.logo a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Fixed, responsive Größe für das Logo: bleibt gleich groß, skaliert aber zwischen Min/Max */
+.forum-wiedenest-logo {
+    height: clamp(150px, 16vh, 220px);
+    width: clamp(150px, 16vh, 220px);
+    object-fit: contain;
+    display: block;
+}
+
+/* Text neben dem Logo */
+.vorstellung-text {
+    text-align: left;
+    flex: 1 1 auto;
+    /* padding für bessere Lesbarkeit */
+    padding: 0.25rem 0;
+    line-height: 1.45;
+    font-size: clamp(15px, 2.0vw, 20px);
+}
+
+/* Auf kleinen Bildschirmen: Logo rutscht über den Text (spaltenweise) */
+@media (max-width: 720px) {
+    .intro {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    .logo {
+        width: 100%;
+    }
+    .forum-wiedenest-logo {
+        /* entferne die vorherige max-width:60% Einschränkung, nutze feste responsive Größe */
+        height: clamp(80px, 12vh, 140px);
+        width: clamp(80px, 12vh, 140px);
+        max-width: none;
+        display: block;
+        margin: 0 auto;
+    }
+    .vorstellung-text {
+        padding: 0;
+    }
+}
+
+/* Sicherstellen, dass bei sehr großen Textblöcken das Logo nicht zu schmal wird */
+@media (min-width: 1100px) {
+    .logo { width: auto; }
+    .forum-wiedenest-logo { height: clamp(140px, 16vh, 260px); width: clamp(140px, 16vh, 260px); }
+}

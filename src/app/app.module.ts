@@ -16,6 +16,8 @@ import { ImpressumComponent } from './components/impressum/impressum.component';
 import { provideHttpClient } from '@angular/common/http';
 import { Sept20BlogComponent } from './blog-pages/sept-20-blog/sept-20-blog.component';
 import { SlidingGalleryComponent } from './components/sliding-gallery/sliding-gallery.component';
+import { ForumWiedenestComponent } from './components/forum-wiedenest/forum-wiedenest.component';
+import { VoluntariosComponent } from './components/voluntarios/voluntarios.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { SlidingGalleryComponent } from './components/sliding-gallery/sliding-ga
     ImpressumComponent,
     Sept20BlogComponent,
     SlidingGalleryComponent,
+    ForumWiedenestComponent,
+    VoluntariosComponent,
   ],
   imports: [
     BrowserModule,

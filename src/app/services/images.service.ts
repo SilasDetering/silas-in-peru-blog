@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import images from '../../assets/fotos/images.json';
+import images_cashibo from '../../assets/fotos/cashibo.json';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class ImagesService {
   private readonly CDN_SMALL_SUBFOLDER = '800px';
 
   private imageData: { [key: string]: string[] } = images as any;
+  private cashiboData: { [key: string]: string[] } = images_cashibo as any;
 
   /**
    * Gibt die kleine (800px) CDN-URL für ein Bild zurück.
@@ -34,5 +36,10 @@ export class ImagesService {
 
   getImagesByFolder(folder: string): string[] {
     return this.imageData[folder] || [];
+  }
+
+  // Liefert die Einträge aus assets/fotos/cashibo.json (Schlüssel "Cashibo")
+  getCashiboImages(): any[] {
+    return (this.cashiboData && this.cashiboData['Cashibo']) ? this.cashiboData['Cashibo'] : [];
   }
 }

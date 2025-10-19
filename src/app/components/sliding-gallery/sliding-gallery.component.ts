@@ -12,7 +12,7 @@ export class SlidingGalleryComponent implements OnInit {
   currentIndex = 0;
 
   private readonly CDN_BASE = 'https://silas-in-peru-fotos.b-cdn.net';
-  private readonly CDN_FOLDER = '09-arequipa';
+  private readonly CDN_FOLDER = 'Fotos';
   private readonly CDN_SMALL_SUBFOLDER = '800px';
 
   constructor(private imagesService: ImagesService) {
@@ -20,7 +20,7 @@ export class SlidingGalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const raw = this.imagesService.getImagesByFolder('Cashibo') || [];
+    const raw = this.imagesService.getCashiboImages() || [];
     this.images = raw.map(entry => {
       if (typeof entry === 'string') {
         const filename = (entry.split('/').pop() || entry).trim();

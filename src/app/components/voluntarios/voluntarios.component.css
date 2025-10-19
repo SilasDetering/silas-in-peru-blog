@@ -1,0 +1,37 @@
+.page {
+    margin: 5% 0 0 0;
+    text-align: center;
+    padding: 0 10%;
+    color: #CAD2C5;
+}
+
+.foto {
+    /* Make the image scale with the viewport while preserving aspect ratio */
+    max-width: 100%;
+    height: auto;
+    width: 80%;
+    display: block;
+    margin: 1rem auto;
+    object-fit: cover;
+    max-height: 80vh; /* prevent overly tall images on very large viewports */
+    border-radius: 10px;
+}
+
+/* Small screens: allow image to use more horizontal space */
+@media (max-width: 600px) {
+    .foto {
+        width: 95%;
+    }
+}
+
+/* Large screens: constrain image width for better layout */
+@media (min-width: 1200px) {
+    .foto {
+        width: 60%;
+    }
+}
+
+.text {
+    color: #CAD2C5;
+    font-size: clamp(15px, 2.0vw, 20px);
+}
