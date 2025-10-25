@@ -42,35 +42,3 @@
 <ng-template #noImages>
   <div class="no-images" style="color:#666; padding:12px;">Keine Bilder verfügbar.</div>
 </ng-template>
-
-<!-- Lokale Spinner-Styles -->
-<style>
-  .sg-spinner-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255,255,255,0.0); /* nur zentrieren, kein komplettes Overlay */
-    z-index: 20;
-    pointer-events: none;
-  }
-  .sg-spinner {
-    width: 48px;
-    height: 48px;
-    border: 4px solid rgba(0,0,0,0.08);
-    border-top-color: rgba(0,0,0,0.35);
-    border-radius: 50%;
-    animation: sg-spin 0.9s linear infinite;
-    background: transparent;
-  }
-  @keyframes sg-spin { to { transform: rotate(360deg); } }
-  /* leichte Transparenz hinter dem Spinner auf mobilen Geräten */
-  .sg-spinner-bg {
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0.0);
-    z-index: 19;
-    border-radius: 8px;
-  }
-</style>

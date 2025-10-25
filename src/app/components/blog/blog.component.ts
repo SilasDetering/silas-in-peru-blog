@@ -11,7 +11,7 @@ export class BlogComponent {
 
   blogComponents: Type<any>[] = [
     // weitere Komponenten hier ergänzen, neueste zuerst
-    //Okt20BlogComponent,
+    Okt20BlogComponent,
     Sept20BlogComponent,
   ];
 

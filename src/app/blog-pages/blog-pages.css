@@ -177,3 +177,53 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
     color: #8FAEA3;      /* dezente, passende Akzentfarbe */
     padding: 0 0.18em;   /* Abstand zu umliegendem Text */
 }
+
+.gebetsanliegen {
+    position: relative;
+    border: 2px solid #FF7474;
+    border-radius: 20px;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.02);
+}
+
+/* Icon: absolut oben links, beeinflusst nicht das Layout (overlay) */
+.gebetsanliegen-image {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 72px;
+    height: auto;
+    z-index: 6;
+    pointer-events: none; /* klicks gehen durch, kein Einfluss auf Interaktion */
+}
+
+/* Inhalt: genug Platz links lassen, damit Text nicht unter das Icon läuft */
+.gebetsanliegen-content {
+    padding-left: 96px; 
+}
+
+/* Kleinere Bildschirme: Icon verkleinern und Padding reduzieren */
+@media (max-width: 600px) {
+    .gebetsanliegen-image {
+        width: 48px;
+        top: 10px;
+        left: 10px;
+    }
+    .gebetsanliegen-content {
+        padding-left: 68px; /* 48px Icon + ~20px Abstand */
+    }
+}
+
+.signature-image {
+    display: block;
+    width: 200px;
+    height: auto;
+}
+@media (max-width: 600px) {
+    .signature-image {
+        width: 120px;
+        height: auto;
+        display: block;
+    }
+}
