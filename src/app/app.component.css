@@ -25,9 +25,35 @@
 }
 
 .body {
-    background: linear-gradient(to top, #354F52, #52796F 98%, rgba(1, 68, 33, 0) 100%);
+    /* Create a stable background and use a pseudo-element for the top fade.
+       This prevents the fade from stretching with the page height on very tall pages. */
+    position: relative;
+    z-index: 1; /* ensure .body content sits above the overlay, while overlay sits above the parallax (z -1) */
+    background: linear-gradient(to bottom, #52796F, #354F52);
     width: 100%;
     padding-top: 3vh;
+}
+
+.body::before {
+    /* Fixed/flexible-height fade overlay between parallax and page content.
+       Use clamp so it scales on small screens but won't grow indefinitely on very tall pages. */
+    content: "";
+    position: absolute;
+     /* extend the overlay upward so it overlaps the previous parallax section
+         and creates a fade from the image into the body area */
+     top: calc(-1 * clamp(80px, 10vh, 220px));
+    left: 0;
+    right: 0;
+    height: clamp(80px, 10vh, 220px);
+    pointer-events: none;
+    z-index: 1; /* sits above the parallax (-1) but below page content (container z-index:2) */
+    background: linear-gradient(to bottom, rgba(82,121,111,0) 0%, rgba(82,121,111,1) 100%);
+}
+
+/* Ensure the main page content inside .body sits above the fade overlay */
+.body > .container-fluid {
+    position: relative;
+    z-index: 2;
 }
 
 .title {
