@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
             break;
           case '/bilder':
             this.title = 'Galerie';
-            this.picture = 'salitas.jpeg';
+            this.picture = 'IMG_0591.jpeg';
             break;
           default:
             this.title = 'Silas in Peru';

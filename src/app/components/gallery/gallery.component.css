@@ -1,7 +1,6 @@
 .gallery-page {
     color: #CAD2C5;
     padding: 0 10%;
-    margin-top: 100px;
 }
 @media (max-width: 700px) {
     .gallery-page {
