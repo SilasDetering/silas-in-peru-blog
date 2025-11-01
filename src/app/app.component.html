@@ -16,4 +16,40 @@
 
         <app-footer></app-footer>
     </div>
+
+    <!-- App-weites Modal-Overlay:
+         AppComponent steuert modalOpen/modalImageUrl/modalCaption/isLoading.
+         Öffnen erfolgt per CustomEvent 'open-gallery-modal'. -->
+    <div class="app-overlay-modal" [class.open]="modalOpen" [attr.aria-hidden]="!modalOpen">
+      <div class="app-overlay-backdrop" (click)="closeModal()" aria-hidden="true"></div>
+
+      <div class="app-modal-content" role="dialog" aria-modal="true" aria-label="Overlay-Modal" (click)="$event.stopPropagation()">
+        <!-- Close -->
+        <button class="modal-close" (click)="closeModal()" aria-label="Schließen">✕</button>
+
+        <!-- Left Arrow -->
+        <button class="modal-arrow left" (click)="prevModal($event)" aria-label="Vorheriges Bild">‹</button>
+
+        <!-- Image + Spinner -->
+        <div class="modal-image-wrap" [class.landscape]="isModalImageLandscape">
+          <img
+            *ngIf="modalImageUrl"
+            [src]="modalImageUrl"
+            [alt]="modalCaption || 'Bild'"
+            (load)="onModalImageLoad($event)"
+            (error)="onModalImageError()"
+            />
+          <div *ngIf="isLoading" class="sg-spinner-overlay" aria-hidden="true">
+            <div class="sg-spinner-bg"></div>
+            <div class="sg-spinner" role="status" aria-label="Bild wird geladen"></div>
+          </div>
+        </div>
+
+        <!-- Right Arrow -->
+        <button class="modal-arrow right" (click)="nextModal($event)" aria-label="Nächstes Bild">›</button>
+
+        <!-- Caption -->
+        <div class="modal-caption" *ngIf="!isLoading && modalCaption">{{ modalCaption }}</div>
+      </div>
+    </div>
 </html>

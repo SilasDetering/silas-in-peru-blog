@@ -8,34 +8,65 @@ import { ImagesService } from '../../services/images.service';
 })
 export class GalleryComponent {
 
-  // vorher string[] -> jetzt Objekt mit url + optional comment
-  folders: { name: string; images: { filename: string; url: string; comment?: string}[] }[] = [];
+  // neue Struktur: sections mit subfolders
+  sections: {
+    name: string;
+    subfolders: { name: string; images: { filename: string; url: string; comment?: string; type: 'image'|'video'; poster?: string }[] }[];
+  }[] = [];
 
   private readonly CDN_BASE = 'https://silas-in-peru-fotos.b-cdn.net';
   private readonly CDN_FOLDER = 'Fotos';
   private readonly CDN_SMALL_SUBFOLDER = '800px';
 
   constructor(private imagesService: ImagesService) {
-    const folderNames = this.imagesService.getFolders();
-    this.folders = folderNames.map(name => ({
-      name,
-      images: this.imagesService.getImagesByFolder(name).map(entry => {
-        // entry kann string "name.jpg" oder objekt { "name.jpg": "comment" }
-        if (typeof entry === 'string') {
-          const filename = (entry.split('/').pop() || entry).trim();
-          return { filename, url: this.toCdnSmallUrl(filename), showCaption: false };
-        } else if (entry && typeof entry === 'object') {
-          const filename = Object.keys(entry)[0];
-          const comment = (entry as any)[filename] || '';
-          const fname = (filename.split('/').pop() || filename).trim();
-          return { filename: fname, url: this.toCdnSmallUrl(fname), comment, showCaption: false };
-        } else {
-          const fallback = String(entry);
-          const filename = (fallback.split('/').pop() || fallback).trim();
-          return { filename, url: this.toCdnSmallUrl(filename), showCaption: false };
-        }
-      })
-    }));
+    // build nested sections model
+    const sectionNames = this.imagesService.getSectionNames();
+    this.sections = sectionNames.map(sectionName => {
+      const subfolderNames = this.imagesService.getSubfolders(sectionName);
+      // Falls keine Subfolders (älteres flaches Format), behandeln wir sectionName als einzelnen "Ordner"
+      const subfolders = (subfolderNames.length ? subfolderNames : [sectionName]).map(subName => {
+        const entries = subfolderNames.length
+          ? this.imagesService.getImagesIn(sectionName, subName)
+          : this.imagesService.getImagesIn(sectionName, subName); // fallback - kompatibel
+        const images = (entries || []).map((entry: any) => {
+          let filename = '';
+          let comment = '';
+          if (typeof entry === 'string') {
+            filename = (entry.split('/').pop() || entry).trim();
+          } else if (entry && typeof entry === 'object') {
+            const key = Object.keys(entry)[0];
+            filename = (key.split('/').pop() || key).trim();
+            comment = (entry as any)[key] || '';
+          } else {
+            const fallback = String(entry);
+            filename = (fallback.split('/').pop() || fallback).trim();
+          }
+
+          const ext = (filename.split('.').pop() || '').toLowerCase();
+          const isVideo = ['mp4','webm','mov'].includes(ext);
+
+          if (isVideo) {
+            return {
+              filename,
+              url: this.imagesService.getCdnFullUrl(filename),
+              comment,
+              type: 'video' as const,
+              poster: this.imagesService.getCdnVideoThumbnailUrl(filename)
+            };
+          } else {
+            return {
+              filename,
+              url: this.imagesService.getCdnSmallUrl(filename),
+              comment,
+              type: 'image' as const
+            };
+          }
+        });
+        return { name: subName, images };
+      });
+
+      return { name: sectionName, subfolders };
+    });
   }
 
   openImage(image: any): void {
@@ -59,8 +90,27 @@ export class GalleryComponent {
     console.log('Mehr Bilder laden...');
   }
 
-  private toCdnSmallUrl(pathOrName: string): string {
-    const filename = (pathOrName.split('/').pop() || pathOrName).trim();
-    return `${this.CDN_BASE}/${this.CDN_FOLDER}/${this.CDN_SMALL_SUBFOLDER}/${filename}`;
+  // Sendet ein CustomEvent ans window, damit die app-root das Modal öffnen kann
+  emitOpenModal(folderName: string, index: number): void {
+    // Suche den Subfolder in den sections
+    for (const section of this.sections) {
+      const folder = section.subfolders.find(f => f.name === folderName);
+      if (!folder) continue;
+
+      // images-Detail für das Modal (inkl. type + url (thumbnails für images, volle url für videos wie angelegt))
+      const images = folder.images.map(img => ({
+        filename: img.filename,
+        comment: img.comment || '',
+        type: img.type,
+        url: img.url
+      }));
+
+      const detail = { sectionName: section.name, folderName, index, images };
+      window.dispatchEvent(new CustomEvent('open-gallery-modal', { detail }));
+      return;
+    }
+
+    // Falls nicht gefunden: optional Fallback / Log
+    console.warn('emitOpenModal: Folder not found in sections:', folderName);
   }
 }

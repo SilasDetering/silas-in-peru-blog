@@ -108,6 +108,10 @@
   padding: 10px 20px;
   border-radius: 50px;
   background-color: #52796F;
+
+  /* ensure caption overlays image shadow if necessary */
+  position: relative;
+  z-index: 2030;
 }
 
 .no-images {

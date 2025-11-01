@@ -15,8 +15,23 @@
 }
 .blog-float-text {
     font-size: clamp(15px, 2.0vw, 20px);
-    /* optional: overflow: hidden; */
+    /* Blocksatz / "Block-Text" */
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    line-height: 1.6;
+    /* Wortumbruch sicherstellen bei langen Wörtern/URLs */
+    word-break: break-word;
 }
+
+/* Kleinere Bildschirme: weniger Einzug, volle Breite */
+@media (max-width: 700px) {
+    .blog-float-text {
+        max-width: 100%;
+        padding: 0 0.25rem;
+    }
+}
+
 @media (max-width: 900px) {
     .blog-float-image {
         float: none;

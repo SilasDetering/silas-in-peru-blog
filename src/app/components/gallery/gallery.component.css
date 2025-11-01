@@ -84,6 +84,63 @@
     transform: scale(1.06);
 }
 
+/* ensure video previews behave like images */
+.gallery-item video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+/* scale on hover wie bei Bildern */
+.gallery-item:hover video {
+    transform: scale(1.06);
+}
+
+/* Play-Icon: sichtbar über der Vorschau (Kreis + zentrales Icon).
+   Schatten liegt auf dem Kreis (box-shadow) damit Glyph-Form den Schatten
+   nicht optisch verschiebt. Beim Hover skaliert die gesamte Schale. */
+.gallery-item .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: clamp(56px, 10vw, 72px);
+    height: clamp(56px, 10vw, 72px);
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.55);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    pointer-events: none; /* Klicks gehen an das .gallery-item (öffnet Modal) */
+}
+
+/* Icon-Glyph: kein eigener Schatten, klar zentriert */
+.gallery-item .play-icon i {
+    display: block;
+    font-size: clamp(20px, 4.5vw, 36px);
+    color: #fff;
+    line-height: 1;
+    margin: 0;
+    filter: none; /* sicherstellen, dass keine drop-shadow mehr auf dem Glyph liegt */
+}
+
+/* leichtes Wachsen beim Hover des Items — skaliert die ganze Schale inkl. Icon */
+.gallery-item:hover .play-icon {
+    transform: translate(-50%, -50%) scale(1.06);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.65);
+}
+
 .spacer{
     border: 2px solid #CAD2C5;
     margin: 0 auto 10px auto;
@@ -130,4 +187,18 @@
     .note {
         max-width: 90%;
     }
+}
+
+.section-title {
+    text-align: center;
+    margin: 1.8rem 0 0.6rem 0;
+    color: #CAD2C5;
+    font-size: clamp(28px, 4.5vw, 56px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+/* optional: etwas mehr Abstand zwischen section-title und erster subfolder */
+.section-title + .date {
+    margin-top: 6px;
 }

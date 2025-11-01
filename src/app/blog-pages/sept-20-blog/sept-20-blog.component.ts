@@ -28,16 +28,16 @@ export class Sept20BlogComponent {
   constructor(private sanitizer: DomSanitizer, private imagesService: ImagesService) {
     this.youtubeHorizontal = this.sanitizeYoutube(this.URL1);
     this.youtubeVertical = this.sanitizeYoutube(this.URL2);
-    this.image1 = this.imagesService.getCdnSmallUrl(this.cdnFolder, this.image1Filename);
-    this.image2 = this.imagesService.getCdnSmallUrl(this.cdnFolder, this.image2Filename);
-    this.image3 = this.imagesService.getCdnSmallUrl(this.cdnFolder, this.image3Filename);
+    this.image1 = this.imagesService.getCdnSmallUrl(this.image1Filename);
+    this.image2 = this.imagesService.getCdnSmallUrl(this.image2Filename);
+    this.image3 = this.imagesService.getCdnSmallUrl(this.image3Filename);
   }
 
   /**
    * Öffnet das Bild in voller Auflösung (direkte CDN-URL).
    */
   openFullImage(image: string): void {
-    const url = this.imagesService.getCdnFullUrl(this.cdnFolder, image);
+    const url = this.imagesService.getCdnFullUrl(image);
     window.open(url, '_blank');
   }
 
