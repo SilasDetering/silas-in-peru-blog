@@ -242,3 +242,74 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
         display: block;
     }
 }
+
+/* Signature row: image + text-only link to gallery */
+.signature-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* image left, link to the far right */
+    gap: 12px;
+    margin-top: 0.5rem;
+    width: 100%;
+    /* ensure there's a little breathing room on the right so the arrow animation isn't clipped
+       when it translates right */
+    padding-right: 12px;
+}
+
+.signature-link {
+    color: #CAD2C5;
+    text-decoration: none; /* never underline */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto; /* ensure it is pushed to the right if extra space */
+    transition: color 160ms ease;
+}
+
+.signature-link i {
+    font-size: 1.05rem; /* make arrow slightly larger so it appears visually thicker */
+    line-height: 1;
+    display: inline-block;
+    transition: transform 160ms cubic-bezier(.2,.8,.2,1), font-size 160ms ease;
+    transform-origin: center;
+}
+
+/* Hover/focus: do not underline; change color and nudge arrow right and slightly scale it for feedback */
+.signature-link:hover,
+.signature-link:focus {
+    text-decoration: none;
+    color: #ffffff;
+    outline: none;
+}
+.signature-link:hover i,
+.signature-link:focus i {
+    transform: translateX(6px) scale(1.15);
+}
+
+/* Keyboard focus visible indicator (accessible) */
+.signature-link:focus-visible {
+    box-shadow: 0 0 0 4px rgba(124, 181, 164, 0.14);
+    border-radius: 4px;
+}
+
+@media (max-width: 700px) {
+    /* on small screens stack vertically so the signature image stays readable */
+    .signature-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .signature-link {
+        margin-left: 0;
+        font-size: 0.95rem;
+    }
+}
+
+.arrow {
+    font-weight: bold;
+}
