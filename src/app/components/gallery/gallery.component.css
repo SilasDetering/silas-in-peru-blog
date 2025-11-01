@@ -2,12 +2,6 @@
     color: #CAD2C5;
     padding: 0 10%;
 }
-@media (max-width: 700px) {
-    .gallery-page {
-        padding: 0 5%;
-        margin-top: 40vw;
-    }
-}
 
 .gallery {
     display: grid;
