@@ -1,0 +1,49 @@
+<div class="blog-post">
+    <div class="meta-row">
+        <span class="meta-item">
+            <i class="bi bi-calendar2"></i>
+            <span class="date">November, 30.11.2025</span>
+        </span>
+        <a class="meta-item pointer" href="https://maps.app.goo.gl/7WHkmepH98F9JNmx8" target="_blank" rel="noopener">
+            <i class="bi bi-geo-alt"></i>
+            <span class="location">Pucallpa/Cashibo</span>
+        </a>
+    </div>
+    <hr class="spacer">
+
+    <div class="blog-float-wrap">
+        <div class="blog-float-text">
+
+            <img [src]="image1" class="blog-float-image-right pointer" (click)="openFullImage(image1)" />
+
+            Text
+
+        </div>
+    </div>
+
+    <div class="blog-float-wrap">
+        <div class="blog-float-text">
+
+            Verabschiedung
+
+            <div class="signature-row">
+                <img src="assets/img/unterschrift.png" alt="Unterschrift Silas" class="signature-image"/>
+                <a routerLink="/bilder" class="signature-link" aria-label="Mehr Fotos ansehen">mehr fotos <i class="bi arrow bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="gebetsanliegen">
+        <img src="assets/img/prayer.png" class="gebetsanliegen-image" alt="Gebetsanliegen Icon"/>
+
+        <div class="gebetsanliegen-content">
+            <h3>Gebetsanliegen</h3>
+            <p class="bullets-intro">Hier ein paar Punkte, die ihr gern im Gebet mittragen könnt:</p>
+            <ul class="bullets" role="list" aria-label="Gebetsanliegen">
+                <li><span class="bullet-title">Dank:</span> Für den guten Start und dass ich mich hier mit meinen Fähigkeiten einsetzen darf.</li>
+                <li><span class="bullet-title">Sprachenlernen:</span> Motivation, weiter am Spanischen dran zu bleiben, um auch mehr mit den Einheimischen hier Kontakt aufzunehmen.</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
