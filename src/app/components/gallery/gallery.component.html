@@ -1,8 +1,7 @@
 <div class="gallery-page">
 
   <div class="note">
-    <p style="margin-bottom: 0;">Hier findest du eine Auswahl meiner Fotos. Am besten schaust du dir die Bilder auf dem Computer an.</p>
-    <p style="margin-top: 0;">Vollbild ist jetzt möglich!</p>
+    <p>Hier findest du eine Auswahl meiner Fotos. Am besten schaust du dir die Bilder auf dem Computer an.</p>
   </div>
 
   <!-- NEU: äußere Sektionen -->
@@ -15,7 +14,7 @@
       <hr class="spacer">
 
       <div class="gallery">
-        <div class="gallery-item" *ngFor="let image of folder.images; let i = index" (click)="emitOpenModal(folder.name, i)">
+        <div class="gallery-item" *ngFor="let image of folder.images; let i = index" (click)="emitOpenModal(section.name, folder.name, i)">
           <!-- Bild -->
           <ng-container *ngIf="image.type === 'image'">
             <img [src]="image.url" alt="Gallery Image" loading="lazy" />

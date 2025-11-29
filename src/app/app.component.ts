@@ -15,7 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   // Modal state
   modalOpen = false;
   modalFolder = '';
-  modalImages: { filename: string; comment?: string }[] = [];
+  modalImages: { filename: string; comment?: string; type?: 'image'|'video'; url?: string; poster?: string }[] = [];
   modalIndex = 0;
   modalImageUrl = '';
   modalCaption = '';
@@ -71,7 +71,7 @@ export class AppComponent implements OnInit, OnDestroy {
     if (!detail) return;
     this.modalFolder = detail.folderName;
     this.modalImages = detail.images || [];
-    this.modalIndex = detail.index || 0;
+    this.modalIndex = typeof detail.index === 'number' ? detail.index : 0;
     this.isLoading = true;
     this.updateModalForIndex();
     this.modalOpen = true;
@@ -79,11 +79,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private updateModalForIndex(): void {
     if (!this.modalImages.length) return;
-    const fname = this.modalImages[this.modalIndex].filename;
-    const url = this.imagesService.getCdnFullUrl(fname);
-    this.modalCaption = this.modalImages[this.modalIndex].comment || '';
+    const current = this.modalImages[this.modalIndex];
+    const url = current.url || (current.filename ? this.imagesService.getCdnFullUrl(current.filename) : '');
+    this.modalCaption = current.comment || '';
     this.isLoading = true;
-    this.isModalImageLandscape = false; // reset until image actual size bekannt
+    this.isModalImageLandscape = false; // reset until actual size known
 
     // clear any pending timeout (safety)
     if (this.modalImageSetTimeout) {
@@ -136,16 +136,34 @@ export class AppComponent implements OnInit, OnDestroy {
       this.isModalImageLandscape = false;
     }
     this.isLoading = false;
-    // preload neighbors
+    // preload neighbors (images/videos use URL)
     if (this.modalImages.length) {
       const prev = (this.modalIndex - 1 + this.modalImages.length) % this.modalImages.length;
       const next = (this.modalIndex + 1) % this.modalImages.length;
       [prev, next].forEach(i => {
-        const src = this.imagesService.getCdnFullUrl(this.modalImages[i].filename);
-        const im = new Image();
-        im.src = src;
+        const src = this.modalImages[i].url || (this.modalImages[i].filename ? this.imagesService.getCdnFullUrl(this.modalImages[i].filename) : '');
+        if (!src) return;
+        if ((this.modalImages[i].type || 'image') === 'video') {
+          // create a video element to hint the browser to preload metadata
+          const v = document.createElement('video');
+          v.preload = 'metadata';
+          v.src = src;
+        } else {
+          const im = new Image();
+          im.src = src;
+        }
       });
     }
+  }
+
+  onModalVideoMetadata(ev: Event): void {
+    const video = ev?.target as HTMLVideoElement | null;
+    if (video && video.videoWidth && video.videoHeight) {
+      this.isModalImageLandscape = video.videoWidth >= video.videoHeight;
+    } else {
+      this.isModalImageLandscape = false;
+    }
+    this.isLoading = false;
   }
 
   onModalImageError(): void {

@@ -32,13 +32,23 @@
 
         <!-- Image + Spinner -->
         <div class="modal-image-wrap" [class.landscape]="isModalImageLandscape">
-          <img
-            *ngIf="modalImageUrl"
-            [src]="modalImageUrl"
-            [alt]="modalCaption || 'Bild'"
-            (load)="onModalImageLoad($event)"
-            (error)="onModalImageError()"
-            />
+          <!-- Image -->
+          <img *ngIf="modalImageUrl && (modalImages[modalIndex]?.type || 'image') === 'image'"
+               [src]="modalImageUrl"
+               [alt]="modalCaption || 'Bild'"
+               (load)="onModalImageLoad($event)"
+               (error)="onModalImageError()"
+               />
+
+          <!-- Video with controls (sound allowed via user interaction) -->
+          <video *ngIf="modalImageUrl && modalImages[modalIndex]?.type === 'video'"
+                 [src]="modalImageUrl"
+                 [poster]="modalImages[modalIndex]?.poster || ''"
+                 controls
+                 playsinline
+                 (loadedmetadata)="onModalVideoMetadata($event)"
+                 (error)="onModalImageError()"
+                 ></video>
           <div *ngIf="isLoading" class="sg-spinner-overlay" aria-hidden="true">
             <div class="sg-spinner-bg"></div>
             <div class="sg-spinner" role="status" aria-label="Bild wird geladen"></div>

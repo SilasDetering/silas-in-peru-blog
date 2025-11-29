@@ -91,26 +91,34 @@ export class GalleryComponent {
   }
 
   // Sendet ein CustomEvent ans window, damit die app-root das Modal öffnen kann
-  emitOpenModal(folderName: string, index: number): void {
-    // Suche den Subfolder in den sections
-    for (const section of this.sections) {
-      const folder = section.subfolders.find(f => f.name === folderName);
-      if (!folder) continue;
+  emitOpenModal(sectionName: string, folderName: string, index: number): void {
+    // Sende Modal-Detail mit Section (Kapitel), Folder (Location) und Bildern
+    console.log('emitOpenModal', sectionName, folderName, index);
 
-      // images-Detail für das Modal (inkl. type + url (thumbnails für images, volle url für videos wie angelegt))
-      const images = folder.images.map(img => ({
-        filename: img.filename,
-        comment: img.comment || '',
-        type: img.type,
-        url: img.url
-      }));
-
-      const detail = { sectionName: section.name, folderName, index, images };
-      window.dispatchEvent(new CustomEvent('open-gallery-modal', { detail }));
+    const section = this.sections.find(s => s.name === sectionName);
+    if (!section) {
+      console.warn('emitOpenModal: Section not found:', sectionName);
       return;
     }
 
-    // Falls nicht gefunden: optional Fallback / Log
-    console.warn('emitOpenModal: Folder not found in sections:', folderName);
+    const folder = section.subfolders.find(f => f.name === folderName);
+    if (!folder) {
+      console.warn('emitOpenModal: Folder not found in section', sectionName, folderName);
+      return;
+    }
+
+    // images-Detail für das Modal: nur benötigte Felder (filename, comment, type)
+    const images = folder.images.map(img => ({
+      filename: img.filename,
+      comment: img.comment || '',
+      type: img.type,
+      // full URL for modal consumption (images/videos)
+      url: this.imagesService.getCdnFullUrl(img.filename),
+      // poster thumbnail (may be undefined for images)
+      poster: (img as any).poster || ''
+    }));
+
+    const detail = { sectionName, folderName, index, images };
+    window.dispatchEvent(new CustomEvent('open-gallery-modal', { detail }));
   }
 }

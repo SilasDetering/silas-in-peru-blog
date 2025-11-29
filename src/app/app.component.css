@@ -131,6 +131,43 @@
     display: block;
 }
 
+/* Ensure videos follow the same sizing rules as images so they don't appear oversized */
+.modal-image-wrap video {
+    max-height: 80vh;
+    max-width: 90vw;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    display: block;
+    background: black;
+}
+
+.modal-image-wrap.landscape video {
+    width: calc(100vw - 80px);
+    max-width: calc(1200px - 80px);
+    max-height: 86vh;
+    height: auto;
+}
+
+.modal-image-wrap:not(.landscape) video {
+    max-width: min(90vw, 900px);
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+}
+
+@media (max-width: 700px) {
+    .modal-image-wrap.landscape video {
+        width: calc(100vw - 32px);
+        max-width: calc(100vw - 32px);
+    }
+    .modal-image-wrap:not(.landscape) video {
+        max-width: calc(100vw - 32px);
+    }
+}
+
 /* Landscape: nutze nahezu die gesamte Viewport-Breite (mit Seitenabstand),
    aber begrenze Höhe, damit Bild nicht überlappt.
    Padding der Wrap sorgt dafür, dass Pfeile Platz haben. */
