@@ -33,14 +33,6 @@ export class Sept20BlogComponent {
     this.image3 = this.imagesService.getCdnSmallUrl(this.image3Filename);
   }
 
-  /**
-   * Öffnet das Bild in voller Auflösung (direkte CDN-URL).
-   */
-  openFullImage(image: string): void {
-    const url = this.imagesService.getCdnFullUrl(image);
-    window.open(url, '_blank');
-  }
-
   sanitizeYoutube(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }

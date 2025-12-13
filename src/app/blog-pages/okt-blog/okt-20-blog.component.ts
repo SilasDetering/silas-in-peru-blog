@@ -26,12 +26,4 @@ export class Okt20BlogComponent {
     this.image3 = this.imagesService.getCdnSmallUrl(this.image3Filename);
     this.image4 = this.imagesService.getCdnSmallUrl(this.image4Filename);
   }
-
-  /**
-   * Öffnet das Bild in voller Auflösung (direkte CDN-URL).
-   */
-  openFullImage(image: string): void {
-    const url = this.imagesService.getCdnFullUrl(image);
-    window.open(url, '_blank');
-  }
 }

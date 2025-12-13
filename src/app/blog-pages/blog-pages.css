@@ -84,8 +84,8 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
 
 /* Spezielle Größe für hochkantige Bilder */
 .blog-float-image-portrait {
-    max-width: 230px;
-    max-height: 420px;
+    max-width: 330px;
+    max-height: 520px;
 }
 @media (max-width: 900px) {
     .blog-float-image-portrait {
@@ -182,10 +182,6 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
     }
 }
 
-.pointer {
-    cursor: pointer;
-}
-
 .comment {
     font-style: italic;
     font-size: 0.95em;
@@ -266,7 +262,6 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
     padding: 0;
     background: none;
     border: none;
-    cursor: pointer;
     margin-left: auto; /* ensure it is pushed to the right if extra space */
     transition: color 160ms ease;
 }
@@ -312,4 +307,15 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
 
 .arrow {
     font-weight: bold;
+}
+
+.bibletext {
+    font-style: italic;
+    color: #A3C4BC;
+    margin: 0.75em auto;
+    width: 80%;
+}
+
+.vers {
+    font-size: smaller;
 }
