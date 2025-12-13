@@ -250,6 +250,8 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
     /* ensure there's a little breathing room on the right so the arrow animation isn't clipped
        when it translates right */
     padding-right: 12px;
+    position: relative;
+    z-index: 2;
 }
 
 .signature-link {
@@ -264,6 +266,9 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
     border: none;
     margin-left: auto; /* ensure it is pushed to the right if extra space */
     transition: color 160ms ease;
+    position: relative;
+    z-index: 3;
+    pointer-events: auto;
 }
 
 .signature-link i {
