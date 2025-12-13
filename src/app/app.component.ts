@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { ImagesService } from './services/images.service';
+import { inject } from "@vercel/analytics"
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private imagesService: ImagesService) {}
 
   ngOnInit(): void {
+    inject();
+
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
