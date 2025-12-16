@@ -264,15 +264,16 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
     padding: 0;
     background: none;
     border: none;
-    margin-left: auto; /* ensure it is pushed to the right if extra space */
+    margin-left: auto;
     transition: color 160ms ease;
     position: relative;
     z-index: 3;
     pointer-events: auto;
+    font-size: 2.00rem;
 }
 
 .signature-link i {
-    font-size: 1.05rem; /* make arrow slightly larger so it appears visually thicker */
+    font-size: 2.05rem;
     line-height: 1;
     display: inline-block;
     transition: transform 160ms cubic-bezier(.2,.8,.2,1), font-size 160ms ease;
