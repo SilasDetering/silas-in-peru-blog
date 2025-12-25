@@ -103,7 +103,7 @@
 }
 
 .foto-gallery {
-    margin-top: clamp(8px, 3.5vh, 48px);    /* klein auf Smartphones, größer auf Laptops */
+    margin-top: clamp(8px, 2.5vh, 20px);    /* klein auf Smartphones, größer auf Laptops */
     margin-bottom: clamp(24px, 6vh, 100px); /* etwas flexiblerer Abstand nach unten */
 }
 

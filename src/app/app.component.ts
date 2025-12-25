@@ -50,7 +50,7 @@ export class AppComponent implements OnInit, OnDestroy {
             break;
           case '/einsatzort':
             this.title = 'Cashibo';
-            this.picture = 'cashibo-rainbow.jpeg'
+            this.picture = 'cashibo.png';
             break;
           case '/bilder':
             this.title = 'Galerie';
