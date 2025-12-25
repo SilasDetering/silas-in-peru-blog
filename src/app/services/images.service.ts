@@ -82,17 +82,45 @@ export class ImagesService {
    * Liefert die Bilder eines Subfolders innerhalb einer Sektion.
    * Falls das alte (flache) Format vorliegt, versucht es als fallback.
    */
+  private normalizeEntries(entries: any): any[] {
+    if (!entries) return [];
+
+    // bereits altes Format: Array von Einträgen
+    if (Array.isArray(entries)) return entries;
+
+    // Neues einfaches Mapping: { "filename.jpg": "comment", ... }
+    if (entries && typeof entries === 'object') {
+      // Falls Struktur { order: [...], items: { filename: comment } }
+      if (Array.isArray((entries as any).order) && (entries as any).items && typeof (entries as any).items === 'object') {
+        const items = (entries as any).items;
+        const order = (entries as any).order as string[];
+        // Erzeuge Array im spezifizierten order
+        return order.map(fn => ({ [fn]: items[fn] ?? '' }));
+      }
+
+      // Falls einfaches Mapping von filename -> comment
+      return Object.keys(entries).map(key => ({ [key]: (entries as any)[key] }));
+    }
+
+    return [];
+  }
+
   getImagesIn(section: string, subfolder: string): any[] {
     const sec = (this.imageData as any)[section];
-    if (sec && typeof sec === 'object') {
-      // wenn section ein Objekt mit Subfolders ist
-      const arr = sec[subfolder];
-      if (Array.isArray(arr)) return arr;
-      // falls section selbst ein Array (altes Format) und subfolder == section
-      if (Array.isArray(sec) && section === subfolder) return sec as any[];
+
+    // Wenn section ein Objekt mit Subfolders ist
+    if (sec && typeof sec === 'object' && !Array.isArray(sec)) {
+      const raw = sec[subfolder];
+      const normalized = this.normalizeEntries(raw);
+      if (normalized.length) return normalized;
+      // Falls nicht gefunden: vielleicht ist subfolder ein top-level key (fallback)
     }
-    // fallback: eventuell ist subfolder ein top-level key (altes Format)
+
+    // Falls section selbst ein Array (altes Format) und subfolder == section
+    if (Array.isArray(sec) && section === subfolder) return this.normalizeEntries(sec as any);
+
+    // fallback: eventuell ist subfolder ein top-level key (altes Format oder Mapping)
     const fallback = (this.imageData as any)[subfolder];
-    return Array.isArray(fallback) ? fallback : [];
+    return this.normalizeEntries(fallback);
   }
 }
