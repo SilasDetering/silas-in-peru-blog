@@ -10,11 +10,11 @@ import { ImagesService } from '../../services/images.service';
 export class DezBlogComponent {
 
   // Bild für das HTML (immer in der HTML festgelegt, hier wird die CDN-URL bereitgestellt)
-  readonly image1Filename = 'IMG_1459.JPG';
-  readonly image2Filename = 'IMG_2919.JPG';
+  readonly image1Filename = 'IMG_2059.jpeg';
+  readonly image2Filename = 'IMG_1459.JPG';
   readonly image3Filename = 'B3188E6D-32D6-43AF-BF0A-9E3E144C3747.JPG';
-  readonly image4Filename = '';
-  readonly image5Filename = '';
+  readonly image4Filename = 'IMG_1761.JPG';
+  readonly image5Filename = 'IMG_2147.JPG';
 
   image1: string = '';
   image2: string = '';
@@ -27,5 +27,6 @@ export class DezBlogComponent {
     this.image2 = this.imagesService.getCdnSmallUrl(this.image2Filename);
     this.image3 = this.imagesService.getCdnSmallUrl(this.image3Filename);
     this.image4 = this.imagesService.getCdnSmallUrl(this.image4Filename);
+    this.image5 = this.imagesService.getCdnSmallUrl(this.image5Filename);
   }
 }

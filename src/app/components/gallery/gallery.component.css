@@ -170,7 +170,7 @@
     border: 2px solid #CAD2C5;
     padding: 10px 12px 0 12px;
     border-radius: 5px;
-    text-align: center;
+    text-align: left;
     max-width: 80ch; /* so breit wie nötig, begrenzt für bessere Lesbarkeit */
     width: auto;
 }
