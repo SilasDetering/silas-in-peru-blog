@@ -99,7 +99,7 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
     float: right;
     clear: right;
     width: clamp(210px, 45%, 420px);
-    margin: 0 0 0.4em 2em;
+    margin: 30px 0 0.4em 2em;
     border-radius: 10px;
     object-fit: cover;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
