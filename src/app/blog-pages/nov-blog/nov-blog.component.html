@@ -14,7 +14,7 @@
     <div class="blog-float-wrap">
         <div class="blog-float-text">
 
-            <img [src]="image1" class="blog-float-image-right blog-float-image-portrait" />
+            <img [src]="image1" class="image-right image-portrait" (click)="openBlogImageModal(0)" style="cursor: pointer;" />
 
             Hola,
             <br>
@@ -55,7 +55,7 @@
     <div class="blog-float-wrap">
         <div class="blog-float-text">
 
-            <img [src]="image2" class="blog-float-image-left blog-float-image-portrait" />
+            <img [src]="image2" class="image-left image-portrait" (click)="openBlogImageModal(1)" style="cursor: pointer;" />
 
             <h4>Der Bibelschulblock</h4>
 
@@ -89,7 +89,7 @@
     <div class="blog-float-wrap">
         <div class="blog-float-text">
 
-            <img [src]="image3" class="blog-float-image-right blog-float-image-portrait" />
+            <img [src]="image3" class="image-right image-portrait" (click)="openBlogImageModal(2)" style="cursor: pointer;" />
 
             <h4>Pucallpa</h4>
 
@@ -127,7 +127,7 @@
     <div class="blog-float-wrap">
         <div class="blog-float-text">
 
-            <img [src]="image4" class="blog-float-image-left blog-float-image-portrait" />
+            <img [src]="image4" class="image-left image-portrait" (click)="openBlogImageModal(3)" style="cursor: pointer;" />
 
             <h4>Río Hirviente - Der Kochende Fluss</h4>
 

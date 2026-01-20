@@ -14,7 +14,7 @@
     <div class="blog-float-wrap">
         <div class="blog-float-text">
 
-            <img [src]="image1" class="blog-float-image-portrait blog-float-image-right"/>
+            <img [src]="image1" class="image-portrait image-right" (click)="openBlogImageModal(0)" style="cursor: pointer;" />
 
             Hola,
             <br>
@@ -44,7 +44,7 @@
     <div class="blog-float-wrap">
         <div class="blog-float-text">
 
-            <img [src]="image2" class="blog-float-image-portrait blog-float-image-left"/>
+            <img [src]="image2" class="image-portrait image-left" (click)="openBlogImageModal(1)" style="cursor: pointer;" />
             
             Zusammen mit Enno <span class="comment">(geht auch nach Cashibo)</span> war ich bei unseren Gasteltern Maritza und Percy untergebracht.
             Beides superliebe Menschen. Wir leben in einem Haus mit kleinem Innenhof direkt vor der Zimmertür. Maritza
@@ -73,7 +73,7 @@
     <div class="blog-float-wrap">
         <div class="blog-float-text">
 
-            <img [src]="image3" class="blog-float-image-right"/>
+            <img [src]="image3" class="image-right" (click)="openBlogImageModal(2)" style="cursor: pointer;" />
 
             An den Wochenenden bereisen wir die Umgebung und lernen das Land Peru mit seinen vielen wunderschönen und
             vielseitigen Orten kennen. Mein Highlight, aber auch das härteste bis jetzt, war die Besteigung des Misti.

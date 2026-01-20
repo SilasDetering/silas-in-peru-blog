@@ -14,6 +14,8 @@ export class GalleryComponent {
     subfolders: { name: string; images: { filename: string; url: string; comment?: string; type: 'image'|'video'; poster?: string }[] }[];
   }[] = [];
 
+  visibleCount = 2;
+
   private readonly CDN_BASE = 'https://silas-in-peru-fotos.b-cdn.net';
   private readonly CDN_FOLDER = 'Fotos';
   private readonly CDN_SMALL_SUBFOLDER = '800px';
@@ -87,7 +89,9 @@ export class GalleryComponent {
   }
 
   onLoadMore(): void {
-    console.log('Mehr Bilder laden...');
+    if (this.visibleCount < this.sections.length) {
+      this.visibleCount++;
+    }
   }
 
   // Sendet ein CustomEvent ans window, damit die app-root das Modal öffnen kann
