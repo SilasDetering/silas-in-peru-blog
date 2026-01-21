@@ -13,7 +13,7 @@ export class DezBlogComponent {
   readonly image1Filename = 'IMG_2059.jpeg';
   readonly image2Filename = 'IMG_1471.JPG';
   readonly image3Filename = 'B3188E6D-32D6-43AF-BF0A-9E3E144C3747.JPG';
-  readonly image4Filename = 'IMG_1761.JPG';
+  readonly image4Filename = '3D69B636-EAC5-430C-85B2-50CCD3A73669_1_105_c.jpeg';
   readonly image5Filename = 'IMG_2147.JPG';
   readonly image6Filename = 'IMG_2098.jpeg';
 
