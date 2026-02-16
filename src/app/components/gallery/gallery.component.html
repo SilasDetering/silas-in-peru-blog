@@ -17,12 +17,12 @@
         <div class="gallery-item" *ngFor="let image of folder.images; let i = index" (click)="emitOpenModal(section.name, folder.name, i)">
           <!-- Bild -->
           <ng-container *ngIf="image.type === 'image'">
-            <img [src]="image.url" alt="Gallery Image" loading="lazy" />
+            <img [src]="image.url" alt="Geschütztes Werk" loading="lazy" (contextmenu)="$event.preventDefault()" />
           </ng-container>
 
           <!-- Video: zeige Poster-Thumbnail als Bild im Grid, lade Video erst im Modal -->
           <ng-container *ngIf="image.type === 'video'">
-            <img [src]="image.poster" alt="Video Thumbnail" loading="lazy" />
+            <img [src]="image.poster" alt="Geschütztes Werk" loading="lazy" (contextmenu)="$event.preventDefault()" />
             <div class="play-icon" aria-hidden="true">
               <i class="bi bi-play-fill" aria-hidden="true"></i>
             </div>

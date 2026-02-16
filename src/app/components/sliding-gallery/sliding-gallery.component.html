@@ -13,9 +13,10 @@
     <!-- Main image: zentriert, mit load/error events für Ladezustand -->
     <img 
       [src]="images[currentIndex].url"
-      [alt]="images[currentIndex].comment || images[currentIndex].filename"
+      [alt]="images[currentIndex].comment || images[currentIndex].filename || 'Geschütztes Werk'"
       (load)="onImageLoad()"
       (error)="onImageError()"
+      (contextmenu)="$event.preventDefault()"
       style="max-height:70vh; max-width:100%; width:auto; height:auto; object-fit:contain; display:block; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.12);" />
 
     <!-- Spinner-Overlay während das Bild lädt -->

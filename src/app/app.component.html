@@ -4,8 +4,8 @@
         <app-navbar></app-navbar>
         
         <section id="parallax">
-            <img [src]=" 'assets/img/' + picture" class="background"/>
-            <h1 class="title">{{title}}</h1>
+          <img [src]=" 'assets/img/' + picture" class="background" [alt]="title + ' Hintergrundbild'" (contextmenu)="$event.preventDefault()" />
+          <h1 class="title">{{title}}</h1>
         </section>
 
         <div class="body">
@@ -34,21 +34,23 @@
         <div class="modal-image-wrap" [class.landscape]="isModalImageLandscape">
           <!-- Image -->
           <img *ngIf="modalImageUrl && (modalImages[modalIndex]?.type || 'image') === 'image'"
-               [src]="modalImageUrl"
-               [alt]="modalCaption || 'Bild'"
-               (load)="onModalImageLoad($event)"
-               (error)="onModalImageError()"
-               />
+            [src]="modalImageUrl"
+            [alt]="modalCaption || 'Bild'"
+            (load)="onModalImageLoad($event)"
+            (error)="onModalImageError()"
+            (contextmenu)="$event.preventDefault()"
+            />
 
           <!-- Video with controls (sound allowed via user interaction) -->
-          <video *ngIf="modalImageUrl && modalImages[modalIndex]?.type === 'video'"
-                 [src]="modalImageUrl"
-                 [poster]="modalImages[modalIndex]?.poster || ''"
-                 controls
-                 playsinline
-                 (loadedmetadata)="onModalVideoMetadata($event)"
-                 (error)="onModalImageError()"
-                 ></video>
+             <video *ngIf="modalImageUrl && modalImages[modalIndex]?.type === 'video'"
+               [src]="modalImageUrl"
+               [poster]="modalImages[modalIndex]?.poster || ''"
+               controls
+               playsinline
+               (loadedmetadata)="onModalVideoMetadata($event)"
+               (error)="onModalImageError()"
+               (contextmenu)="$event.preventDefault()"
+               ></video>
           <div *ngIf="isLoading" class="sg-spinner-overlay" aria-hidden="true">
             <div class="sg-spinner-bg"></div>
             <div class="sg-spinner" role="status" aria-label="Bild wird geladen"></div>

@@ -15,7 +15,7 @@
     <div class="blog-float-wrap">
         <div class="blog-float-text">
 
-            <img [src]="image1" class="image-left image-portrait" (click)="openBlogImageModal(0)" style="cursor: pointer;" />
+            <img [src]="image1" class="image-left image-portrait" (click)="openBlogImageModal(0)" style="cursor: pointer;" (contextmenu)="$event.preventDefault()" />
 
             Wow, crazy wie viel in diesem Monat passiert ist!<br>
             Ich glaube, dieser Rundbrief wird der längste bisher, weil es sooo viel zu berichten gibt.<br>
@@ -43,7 +43,7 @@
 
             <h4>Tingo María</h4>
             
-            <img [src]="image2" class="image-right image-big" (click)="openBlogImageModal(1)" style="cursor: pointer;" />
+            <img [src]="image2" class="image-right image-big" (click)="openBlogImageModal(1)" style="cursor: pointer;" (contextmenu)="$event.preventDefault()" />
 
             Der Dezember begann direkt mit einem verlängerten Wochenende aufgrund von zwei Feiertagen und mit unserer „Geburtstagswoche“. 
             In Peru gibt es einige Feiertage, die wir in Deutschland nicht kennen. 
@@ -74,7 +74,7 @@
             <br>
             Insgesamt habe ich die Weihnachtszeit hier auf Cashibo sehr gemocht, auch wenn es sich für mich nicht so richtig wie Weihnachten angefühlt hat.
             In der Adventszeit steht Gemeinschaft ganz besonders im Vordergrund.
-            <img [src]="image3" class="image-right image-big" (click)="openBlogImageModal(2)" style="cursor: pointer;" />
+            <img [src]="image3" class="image-right image-big" (click)="openBlogImageModal(2)" style="cursor: pointer;" (contextmenu)="$event.preventDefault()" />
             Am 5. Dezember fand die große Weihnachtsfeier, die Cena Navideña, auf Cashibo statt. 
             Zusammen mit allen Missionaren und Mitarbeitern.
             Das Programm bestand aus einem bunten Abend mit Musik, Theater, einer Andacht und einem gemeinsamen Essen.            
@@ -106,7 +106,7 @@
             Nach ein paar Tagen auf Cashibo sind wir dann zusammen nach Lima geflogen, um dort Silvester zu feiern.
             
             <br>
-            <img [src]="image4" class="image-right image-portrait" (click)="openBlogImageModal(3)" style="cursor: pointer;" />
+            <img [src]="image4" class="image-right image-portrait" (click)="openBlogImageModal(3)" style="cursor: pointer;" (contextmenu)="$event.preventDefault()" />
             
             In Lima ist mir nochmal besonders aufgefallen, wie unterschiedlich die Gegenden und Menschen in Peru sind. 
             Durch die großen Entfernungen und die geografischen Trennungen gibt es in Peru viele unterschiedliche Kulturen und Lebensweisen.
@@ -131,7 +131,7 @@
 
             <h4>Huacachina & Paracas</h4>
 
-            <img [src]="image5" class="image-left image-big" (click)="openBlogImageModal(4)" style="cursor: pointer;" />
+            <img [src]="image5" class="image-left image-big" (click)="openBlogImageModal(4)" style="cursor: pointer;" (contextmenu)="$event.preventDefault()" />
 
             Viel Zeit hatten wir nicht in Lima, denn direkt am 1. Januar ging es weiter nach Huacachina.
             Huacachina ist eine kleine Oase mitten in der Wüste, umgeben von riesigen Sanddünen.
@@ -149,7 +149,7 @@
             <br>
             <br>
 
-            <img [src]="image6" class="image-right image-portrait" (click)="openBlogImageModal(5)" style="cursor: pointer;" />
+            <img [src]="image6" class="image-right image-portrait" (click)="openBlogImageModal(5)" style="cursor: pointer;" (contextmenu)="$event.preventDefault()" />
 
             Nach zwei Nächten in Huacachina sind wir weiter nach Paracas gefahren, einem kleinen Küstenort direkt am Pazifik.
             Paracas ist vor allem für das nahegelegene Naturschutzgebiet "Islas Ballestas" bekannt, wo man viele Meeresbewohner wie Seelöwen, Pinguine und verschiedene Vogelarten beobachten kann.

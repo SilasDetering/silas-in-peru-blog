@@ -14,7 +14,7 @@
     <div class="blog-float-wrap">
         <div class="blog-float-text">
 
-            <img [src]="image1" class="image-right image-portrait" (click)="openBlogImageModal(0)" style="cursor: pointer;" />
+            <img [src]="image1" class="image-right image-portrait" (click)="openBlogImageModal(0)" style="cursor: pointer;" (contextmenu)="$event.preventDefault()" alt="Geschütztes Werk"/>
 
             Hola,
             <br>
