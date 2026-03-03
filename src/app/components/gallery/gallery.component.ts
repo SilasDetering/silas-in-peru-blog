@@ -8,13 +8,12 @@ import { ImagesService } from '../../services/images.service';
 })
 export class GalleryComponent {
 
-  // neue Struktur: sections mit subfolders
   sections: {
     name: string;
     subfolders: { name: string; images: { filename: string; url: string; comment?: string; type: 'image'|'video'; poster?: string }[] }[];
   }[] = [];
 
-  visibleCount = 2;
+  visibleCount = 1;
 
   private readonly CDN_BASE = 'https://silas-in-peru-fotos.b-cdn.net';
   private readonly CDN_FOLDER = 'Fotos';

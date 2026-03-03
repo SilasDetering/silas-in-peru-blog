@@ -1,0 +1,6 @@
+
+<div class="wordcloud" aria-label="Tribes word cloud">
+  <span *ngFor="let e of entriesWithRot" class="word" [style.fontSize.px]="getFontSize(e.weight)" [style.--rot]="e.rot + 'deg'" title="{{e.weight}}">
+    {{ e.word }}
+  </span>
+</div>

@@ -1,57 +1,86 @@
 .footer{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 4rem;
-    padding: 1rem;
+  --footer-block-height: 160px;
+  --sponsor-label-height: 0px;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.footer > div {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  height: var(--footer-block-height);
 }
 
 .sponsor-label{
-    color: white;
-    margin-bottom: -10px;
-    font-style: italic;
-    font-size: small;
+  color: white;
+  margin: 0;
+  font-style: italic;
+  font-size: small;
+  height: var(--sponsor-label-height);
+  line-height: var(--sponsor-label-height);
 }
 
 .footer img {
-    height: auto;
-    object-fit: contain;
+  width: auto;
+  max-width: 100%;
+  max-height: calc(var(--footer-block-height) - var(--sponsor-label-height));
+  object-fit: contain;
+  display: block;
 }
 
-.bjfd-logo {
-    width: 25vw;
-    max-width: 500px;
-    min-width: 100px;
-    height: auto;
-    display: block;
+.bjfd-logo, .wiedenest-logo, .msp-logo {
+  max-width: 360px;
+  margin: 0 auto;
 }
 
-.wiedenest-logo {
-    width: 30vw;
-    max-width: 600px;
-    min-width: 100px;
-    height: auto;
-    display: block;
-}
-
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .footer {
-    gap: 2rem;
-    flex-direction: column;
+    gap: 1.5rem;
+    flex-wrap: wrap;
     align-items: center;
   }
-  .bjfd-logo {
-    width: 80vw;
-    max-width: 90vw;
-    min-width: 80px;
+  .footer > div {
+    flex: 1 1 100%;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 0.75rem 0.5rem;
   }
-  .wiedenest-logo {
-    width: 85vw;
-    max-width: 90vw;
-    min-width: 80px;
+  .bjfd-logo, .wiedenest-logo, .msp-logo {
+    max-width: 80%;
   }
+  .footer{
+    --footer-block-height: 120px;
+  }
+}
+
+.sponsor-column{
+  --sponsor-label-height: 22px;
+  padding-left: 0.5rem;
+}
+
+/* stronger selector to override .footer > div centering */
+.footer > div.sponsor-column {
+  align-items: flex-start;
+}
+
+.sponsor-column .sponsor-label {
+  text-align: left;
+  width: auto;
+}
+
+.sponsor-column .bjfd-logo {
+  margin: 0; /* ensure logo left-aligns under the label */
+  align-self: flex-start;
 }
 
 .impressum, .impressum a {
