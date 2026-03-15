@@ -13,7 +13,7 @@ import { FebBlogComponent } from '../../blog-pages/feb-blog/feb-blog.component';
 export class BlogComponent {
 
   blogComponents: Type<any>[] = [
-    //FebBlogComponent,
+    FebBlogComponent,
     DezBlogComponent,
     NovBlogComponent,
     Okt20BlogComponent,

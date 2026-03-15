@@ -9,11 +9,11 @@ import { ImagesService } from '../../services/images.service';
 })
 export class FebBlogComponent {
 
-  readonly image1Filename = '';
-  readonly image2Filename = '';
-  readonly image3Filename = '';
+  readonly image1Filename = 'D6802B19-DFC1-4180-9EC9-A259EAAEE884_1_105_c.jpeg';
+  readonly image2Filename = 'Semana_de_los_ninos.png';
+  readonly image3Filename = 'IMG_2673.jpeg';
   readonly image4Filename = '';
-  readonly image5Filename = '';
+  readonly image5Filename = 'dji_fly_20260309_183024_0069_1773099941351_photo_beautify.JPG';
   readonly image6Filename = '';
 
   image1: string = '';

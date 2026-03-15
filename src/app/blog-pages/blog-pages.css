@@ -336,3 +336,11 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
 .vers {
     font-size: smaller;
 }
+
+.bullet-title {
+    font-weight: bold;
+}
+
+.bulletpoint {
+    margin-bottom: 0.4em;
+}
