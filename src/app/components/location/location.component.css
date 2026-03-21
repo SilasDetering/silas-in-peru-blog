@@ -1,6 +1,8 @@
 .location-page {
     text-align: center;
     color: #CAD2C5;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .video-container {
@@ -52,6 +54,16 @@
     height: auto;
 }
 
+.time-container-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    column-gap: 1.4rem;
+    row-gap: 0.7rem;
+    margin: 1.25rem auto 2rem auto;
+}
+
 .time-container {
     display: flex;
     flex-direction: column; /* Für Handy-Displays: Items untereinander */
@@ -62,12 +74,13 @@
     font-size: clamp(18px, 2vw, 22px);
     max-width: 420px;
     width: 100%;
-    margin: 0 auto 20px auto;
+    margin: 0;
     background-color: #cad2c5;
     border-radius: 50px;
     color: #FF7474;
     flex-direction: row;
     padding: 0 1.5rem;
+    flex: 0 1 420px;
 }
 
 .time-item {
@@ -113,4 +126,8 @@
     margin-top: 4px;
     margin-bottom: 16px;
   }
+
+    .time-container {
+        max-width: 100%;
+    }
 }
