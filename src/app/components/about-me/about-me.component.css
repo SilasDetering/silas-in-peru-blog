@@ -28,3 +28,9 @@
     color: #CAD2C5;
 
 }
+
+@media (max-width: 768px) {
+    .page {
+        padding: 0 4%;
+    }
+}

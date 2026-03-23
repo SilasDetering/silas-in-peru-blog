@@ -23,6 +23,12 @@
     .foto {
         width: 95%;
     }
+    .headline{
+        margin-top: 5rem;
+    }
+    .page {
+        padding: 0 5%;
+    }
 }
 
 /* Large screens: constrain image width for better layout */

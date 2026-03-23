@@ -27,3 +27,9 @@
 .load-more:hover .load-more-arrow {
     transform: translateY(8px);
 }
+
+@media (max-width: 768px) {
+    .blog-page {
+        margin: 0 4%;
+    }
+}
