@@ -86,6 +86,11 @@
 
 /* kleinere Buttons auf sehr schmalen Displays */
 @media (max-width: 480px) {
+  .sliding-gallery {
+    height: clamp(250px, 60vh, 600px);
+    gap: 8px;
+  }
+
   .arrow {
     width: 40px;
     height: 40px;
