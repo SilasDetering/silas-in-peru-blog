@@ -4,6 +4,7 @@ import { Okt20BlogComponent } from '../../blog-pages/okt-blog/okt-20-blog.compon
 import { NovBlogComponent } from '../../blog-pages/nov-blog/nov-blog.component';
 import { DezBlogComponent } from '../../blog-pages/dez-blog/dez-blog.component';
 import { FebBlogComponent } from '../../blog-pages/feb-blog/feb-blog.component';
+import { AprBlogComponent } from '../../blog-pages/apr-blog/apr-blog.component';
 
 @Component({
   selector: 'app-blog',
@@ -13,6 +14,7 @@ import { FebBlogComponent } from '../../blog-pages/feb-blog/feb-blog.component';
 export class BlogComponent {
 
   blogComponents: Type<any>[] = [
+    AprBlogComponent,
     FebBlogComponent,
     DezBlogComponent,
     NovBlogComponent,
