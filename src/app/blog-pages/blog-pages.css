@@ -135,6 +135,14 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
     object-fit: cover;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
+
+.image-caption {
+    display: block;
+    font-size: 0.95rem;
+    color: #8FAEA3;
+    margin: 0.25rem 0 1rem 0;
+    clear: both;
+}
 @media (max-width: 900px) {
     .image-left {
         float: none;
@@ -199,6 +207,71 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
     color: #8FAEA3;      /* dezente, passende Akzentfarbe */
     padding: 0 0.18em;   /* Abstand zu umliegendem Text */
 }
+
+.bible-ref {
+    position: relative;
+    display: inline-block;
+    color: #8FAEA3;
+    cursor: help;
+}
+
+.bible-ref:focus {
+    outline: none;
+}
+
+.bible-tooltip {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateY(8px);
+    width: min(360px, 80vw);
+    padding: 0.9rem 1rem;
+    border-radius: 14px;
+    background: #1c2a27;
+    border: 1px solid rgba(138, 174, 163, 0.45);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+    color: #f5f7f4;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    text-align: left;
+    z-index: 1200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.bible-tooltip::after {
+    content: '';
+    position: absolute;
+    left: var(--arrow-left, 1.1rem);
+    top: 100%;
+    transform: none;
+    border-width: 8px 8px 0 8px;
+    border-style: solid;
+    border-color: #1c2a27 transparent transparent transparent;
+}
+
+/* If tooltip is placed below the reference, flip the arrow to top */
+.bible-tooltip[data-placement="bottom"]::after {
+    top: -8px;
+    transform: rotate(180deg);
+    border-color: transparent transparent #1c2a27 transparent;
+}
+
+@media (max-width: 700px) {
+    .bible-tooltip {
+        left: 0;
+        transform: translate(0, 8px);
+        width: min(320px, 88vw);
+    }
+
+    .bible-tooltip::after {
+        left: 1.1rem;
+        transform: none;
+    }
+}
+
+/* Note: positioning is handled via JS when tooltips are rendered into the document body. */
 
 .gebetsanliegen {
     position: relative;

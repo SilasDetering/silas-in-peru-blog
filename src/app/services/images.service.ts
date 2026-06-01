@@ -123,4 +123,37 @@ export class ImagesService {
     const fallback = (this.imageData as any)[subfolder];
     return this.normalizeEntries(fallback);
   }
+
+  /**
+   * Liefert den Kommentar (falls vorhanden) für einen gegebenen Dateinamen.
+   * Durchsucht rekursiv die geladene `imageData`-Struktur.
+   */
+  getComment(filename: string): string {
+    const fname = (filename.split('/').pop() || filename).trim();
+    const res = this.findCommentRecursive(this.imageData, fname);
+    return res ?? '';
+  }
+
+  private findCommentRecursive(obj: any, fname: string): string | null {
+    if (!obj) return null;
+    if (Array.isArray(obj)) {
+      for (const item of obj) {
+        const r = this.findCommentRecursive(item, fname);
+        if (r !== null) return r;
+      }
+      return null;
+    }
+    if (typeof obj === 'object') {
+      // direct mapping filename -> comment
+      if (Object.prototype.hasOwnProperty.call(obj, fname)) {
+        return (obj as any)[fname] || '';
+      }
+      // otherwise descend
+      for (const k of Object.keys(obj)) {
+        const r = this.findCommentRecursive(obj[k], fname);
+        if (r !== null) return r;
+      }
+    }
+    return null;
+  }
 }
