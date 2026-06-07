@@ -15,7 +15,7 @@ export class AprBlogComponent implements AfterViewInit {
   readonly image4Filename = '1119EBCC-CF46-45BE-AE2F-E59C016EB47B.jpeg';
   readonly image5Filename = 'IMG_4772.JPG';
   readonly image6Filename = 'IMG_4769.JPG';
-  readonly image7Filename = '';
+  readonly image7Filename = 'IMG_4557.jpeg';
 
   image1: string = '';
   image2: string = '';
