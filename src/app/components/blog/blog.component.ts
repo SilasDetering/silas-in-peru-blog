@@ -1,10 +1,10 @@
 import { Component, Type } from '@angular/core';
-import { Sept20BlogComponent } from '../../blog-pages/sept-blog/sept-20-blog.component';
-import { Okt20BlogComponent } from '../../blog-pages/okt-blog/okt-20-blog.component';
-import { NovBlogComponent } from '../../blog-pages/nov-blog/nov-blog.component';
-import { DezBlogComponent } from '../../blog-pages/dez-blog/dez-blog.component';
-import { FebBlogComponent } from '../../blog-pages/feb-blog/feb-blog.component';
-import { AprBlogComponent } from '../../blog-pages/apr-blog/apr-blog.component';
+import { Sept20BlogComponent } from '../../blog-pages/(1) sept-blog/sept-20-blog.component';
+import { Okt20BlogComponent } from '../../blog-pages/(2) okt-blog/okt-20-blog.component';
+import { NovBlogComponent } from '../../blog-pages/(3) nov-blog/nov-blog.component';
+import { DezBlogComponent } from '../../blog-pages/(4) dez-blog/dez-blog.component';
+import { FebBlogComponent } from '../../blog-pages/(5) feb-blog/feb-blog.component';
+import { JunJulBlogComponent } from '../../blog-pages/(7) jun-jul-blog/jun-jul-blog.component';
 
 @Component({
   selector: 'app-blog',
@@ -14,7 +14,7 @@ import { AprBlogComponent } from '../../blog-pages/apr-blog/apr-blog.component';
 export class BlogComponent {
 
   blogComponents: Type<any>[] = [
-    AprBlogComponent,
+    JunJulBlogComponent,
     FebBlogComponent,
     DezBlogComponent,
     NovBlogComponent,

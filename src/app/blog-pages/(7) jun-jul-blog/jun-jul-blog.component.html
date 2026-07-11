@@ -1,0 +1,113 @@
+<div class="blog-post">
+    <div class="meta-row">
+        <span class="meta-item">
+            <i class="bi bi-calendar2"></i>
+            <span class="date">Juli 11.07.2026</span>
+        </span>
+        <a class="meta-item" target="_blank" rel="noopener">
+            <i class="bi bi-geo-alt"></i>
+            <span class="location">Pucallpa, Cashibo</span>
+        </a>
+    </div>
+    <hr class="spacer">
+
+    <div class="blog-float-wrap">
+        <div class="blog-float-text">
+
+            <img [src]="image1" class="image-right" (click)="openBlogImageModal(0)" style="cursor: pointer; max-height: 420px;" />
+            <div class="image-caption" *ngIf="blogImages[0]?.comment">{{ blogImages[0].comment }}</div>
+
+            Hi, <br>
+
+        </div>
+    </div>
+
+    <div class="blog-float-wrap">
+        <div class="blog-float-text">
+            
+            <h4>Was gerade so passiert in Cashibo</h4>
+
+</div>
+    </div>
+
+    <div class="blog-float-wrap">
+        <div class="blog-float-text">
+            
+            <h4>Durch den Dschungel und über die Anden</h4>
+
+            <img [src]="image2" class="image-left" (click)="openBlogImageModal(1)" style="cursor: pointer; max-height: 420px;" />
+            <div class="image-caption" *ngIf="blogImages[1]?.comment">{{ blogImages[1].comment }}</div>
+
+            <br>
+            <img [src]="image3" class="image-right image-portrait" (click)="openBlogImageModal(2)" style="cursor: pointer; max-height: 420px;" />
+            <div class="image-caption" *ngIf="blogImages[2]?.comment">{{ blogImages[2].comment }}</div>
+            
+            <br>
+            <img [src]="image4" class="image-left image-big" (click)="openBlogImageModal(3)" style="cursor: pointer; max-height: 420px;" />
+            <div class="image-caption" *ngIf="blogImages[3]?.comment">{{ blogImages[3].comment }}</div>
+
+        </div>
+    </div>
+
+    <div class="blog-float-wrap">
+        <div class="blog-float-text">
+            
+            <h4>Meine Reise zu den Awajun</h4>
+
+            <img [src]="image5" class="image-left" (click)="openBlogImageModal(4)" style="cursor: pointer; max-height: 420px;" />
+            <div class="image-caption" *ngIf="blogImages[4]?.comment">{{ blogImages[4].comment }}</div>
+
+            <img [src]="image6" class="image-right image-portrait" (click)="openBlogImageModal(5)" style="cursor: pointer; max-height: 420px;" />
+            <div class="image-caption" *ngIf="blogImages[5]?.comment">{{ blogImages[5].comment }}</div>
+
+            <img [src]="image7" class="image-left image-big" (click)="openBlogImageModal(6)" style="cursor: pointer; max-height: 420px;" />
+            <div class="image-caption" *ngIf="blogImages[6]?.comment">{{ blogImages[6].comment }}</div>
+        
+        </div>
+    </div>
+
+    <div class="blog-float-wrap">
+        <div class="blog-float-text">
+
+        </div>
+    </div>
+
+    <div class="blog-float-wrap">
+        <div class="blog-float-text">
+
+            Abschied
+
+            <br><br>
+            Liebe Grüße
+
+            <div class="signature-row">
+                <img src="assets/img/unterschrift.png" alt="Unterschrift Silas" class="signature-image" />
+                <a href="/bilder" class="signature-link" aria-label="Mehr Fotos ansehen"> <i class="bi bi-images"></i> <i class="bi bi-arrow-right-short"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="gebetsanliegen">
+        <img src="assets/img/prayer.png" class="gebetsanliegen-image" alt="Gebetsanliegen Icon" />
+
+        <div class="gebetsanliegen-content">
+            <h3>Gebetsanliegen</h3>
+            <p class="bullets-intro">Hier ein paar Punkte, die ihr gern im Gebet mittragen könnt:</p>
+            <ul class="bullets" role="list" aria-label="Gebetsanliegen">
+                <li class="bulletpoint"><span class="bullet-title">Stammesreise:</span>
+                    Danke, dass ich die Möglichkeit hatte, die Awajun zu besuchen und dort zu leben. Danke, dass ich gesund geblieben bin und so viele tolle Menschen kennenlernen durfte.
+                </li>
+                <li class="bulletpoint"><span class="bullet-title">Moises, Bernabe, Christowal &amp; Angelika, Mario</span>
+                    Danke für die Gastfreundschaft, die ich von diesen Menschen erfahren durfte. Bitte betet, dass Gott ihnen das zurückgibt, was sie mir Gutes getan haben.
+                </li>
+                <li class="bulletpoint"><span class="bullet-title">Awajun:</span>
+                    Betet für unsere Geschwister, dass sie in ihrem Glauben wachsen und dass das Evangelium voll und ganz in ihren Herzen ankommt.
+                </li>
+                <li class="bulletpoint"><span class="bullet-title">Zukunftswege:</span>
+                    Betet gerne für mich, dass Gott mir zeigt wie es für mich weitergehen soll und dass ich in der nächsten Zeit gute Entscheidungen treffe.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
