@@ -417,3 +417,40 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
 .bulletpoint {
     margin-bottom: 0.4em;
 }
+
+.danke {
+    text-align: center;
+    font-size: 7.50em;
+    font-weight: bold;
+}
+
+/* --- Bilder Leiste (Image Row) --- */
+.image-row {
+    display: flex;
+    flex-direction: row;
+    gap: 15px; /* Abstand zwischen den Bildern */
+    width: 100%;
+    margin: 1.5em 0;
+}
+
+.row-img {
+    flex: 1 1 0; /* Zwingt alle Bilder, exakt die gleiche Breite in der Zeile einzunehmen */
+    width: 0; /* Hilft Flexbox, den Platz absolut gleichmäßig aufzuteilen */
+    height: 220px; /* Feste Höhe, damit es eine saubere Kante gibt */
+    object-fit: cover; /* Verhindert das Verzerren der Bilder; sie werden passend zugeschnitten */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Auf mobilen Geräten die Höhe reduzieren, damit die Bilder nicht zu schmal/hoch wirken */
+@media (max-width: 700px) {
+    .image-row {
+        gap: 8px; /* Etwas weniger Abstand auf kleinen Bildschirmen */
+    }
+    .row-img {
+        height: 120px;
+        border-radius: 8px;
+    }
+}

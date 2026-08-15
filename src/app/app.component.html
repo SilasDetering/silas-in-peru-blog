@@ -44,7 +44,7 @@
           <!-- Video with controls (sound allowed via user interaction) -->
              <video *ngIf="modalImageUrl && modalImages[modalIndex]?.type === 'video'"
                [src]="modalImageUrl"
-               [poster]="modalImages[modalIndex]?.poster || ''"
+               [poster]="modalImages[modalIndex].poster || ''"
                controls
                playsinline
                (loadedmetadata)="onModalVideoMetadata($event)"
