@@ -17,6 +17,15 @@
         <app-footer></app-footer>
     </div>
 
+    <!-- Diashow FAB: außerhalb von .wrapper → position:fixed wirkt relativ zum Viewport -->
+    <button *ngIf="isGalleryPage && !slideshowOpen"
+      class="gallery-fab"
+      (click)="dispatchSlideshowTrigger()"
+      aria-label="Diashow starten">
+      <span class="gallery-fab-icon">&#9654;</span>
+      <span class="gallery-fab-text">Diashow</span>
+    </button>
+
     <!-- App-weites Modal-Overlay:
          AppComponent steuert modalOpen/modalImageUrl/modalCaption/isLoading.
          Öffnen erfolgt per CustomEvent 'open-gallery-modal'. -->
@@ -64,4 +73,101 @@
         <div class="modal-caption" *ngIf="!isLoading && modalCaption">{{ modalCaption }}</div>
       </div>
     </div>
+
+    <!-- ===================== SLIDESHOW OVERLAY ===================== -->
+    <div class="ss-overlay" [class.ss-open]="slideshowOpen" role="dialog" aria-modal="true" aria-label="Diashow"
+      (mousemove)="onSlideshowMouseMove()">
+
+      <!-- STATE 1: Titelkarte -->
+      <div class="ss-title-card" *ngIf="currentSsItem?.kind === 'title'" [attr.data-key]="slideshowProgressKey">
+        <div class="ss-title-month">{{ currentSsItem!.month }}</div>
+        <div class="ss-title-location" *ngIf="currentSsItem!.kind === 'title' && currentSsItem!.location">
+          {{ currentSsItem!.location }}
+        </div>
+      </div>
+
+      <!-- STATE 2: Bild -->
+      <ng-container *ngIf="ssImageItem">
+        <img class="ss-bg-blur" [src]="ssImageItem!.url" aria-hidden="true" (contextmenu)="$event.preventDefault()" />
+        <img class="ss-main-img"
+          [src]="ssImageItem!.url"
+          [alt]="ssImageItem!.comment || 'Bild'"
+          (load)="onSlideshowLoad()"
+          (contextmenu)="$event.preventDefault()"
+        />
+      </ng-container>
+
+      <!-- STATE 3: Video -->
+      <ng-container *ngIf="ssVideoItem">
+        <video class="ss-main-video"
+          [src]="ssVideoItem!.url"
+          [poster]="ssVideoItem!.poster"
+          autoplay
+          playsinline
+          (ended)="onSlideshowVideoEnded()"
+          (loadedmetadata)="onSlideshowVideoLoaded()"
+          (contextmenu)="$event.preventDefault()"
+        ></video>
+      </ng-container>
+
+      <!-- Lage-Label oben links -->
+      <div class="ss-location-label" *ngIf="currentSsItem?.kind !== 'title'">
+        <span class="ss-loc-month">{{ currentSsMonth }}</span>
+        <span class="ss-loc-sep" *ngIf="currentSsLocation"> · </span>
+        <span class="ss-loc-loc">{{ currentSsLocation }}</span>
+      </div>
+
+
+
+      <!-- Caption unten -->
+      <div class="ss-caption" *ngIf="ssCurrentComment && ssShowCaption">
+        {{ ssCurrentComment }}
+      </div>
+
+      <!-- Controls unten rechts -->
+      <div class="ss-controls" [class.ss-hidden]="!ssControlsVisible">
+        <!-- Speed Slider -->
+        <div class="ss-speed">
+          <span class="ss-speed-label">&#9900;</span>
+          <input id="ss-speed-slider" type="range" min="2" max="15" step="1"
+            [value]="slideshowIntervalMs / 1000"
+            (input)="onIntervalChange($event)"
+            aria-label="Intervall in Sekunden" />
+          <span class="ss-speed-val">{{ slideshowIntervalMs / 1000 }}s</span>
+        </div>
+
+        <div class="ss-ctrl-btns">
+          <button class="ss-btn ss-btn-chapter" (click)="prevChapter()" aria-label="Vorheriges Kapitel (Ort)" title="Vorheriges Kapitel (Ort) [↑]">«</button>
+          <button class="ss-btn" (click)="prevSlide()" aria-label="Vorheriges Bild" title="Vorheriges Bild [←]">‹</button>
+          <button class="ss-btn ss-btn-pause" (click)="toggleSlideshowPause()" [attr.aria-label]="slideshowPaused ? 'Abspielen' : 'Pause'" title="Pause / Play [Leertaste]">
+            <span *ngIf="slideshowPaused">▶</span>
+            <span *ngIf="!slideshowPaused">⏸</span>
+          </button>
+          <button class="ss-btn" (click)="nextSlide()" aria-label="Nächstes Bild" title="Nächstes Bild [→]">›</button>
+          <button class="ss-btn ss-btn-chapter" (click)="nextChapter()" aria-label="Nächstes Kapitel (Ort)" title="Nächstes Kapitel (Ort) [↓]">»</button>
+          <button class="ss-btn ss-btn-caption" (click)="ssShowCaption = !ssShowCaption"
+            [class.ss-btn-active]="ssShowCaption"
+            [attr.aria-label]="ssShowCaption ? 'Beschreibung ausblenden' : 'Beschreibung anzeigen'"
+            title="Bildbeschreibung">
+            &#9741;
+          </button>
+          <button class="ss-btn ss-btn-fullscreen" (click)="toggleFullscreen()"
+            [class.ss-btn-active]="isFullscreen"
+            [attr.aria-label]="isFullscreen ? 'Vollbild beenden' : 'Browser-Vollbildmodus aktivieren'"
+            [title]="isFullscreen ? 'Vollbild beenden (F)' : 'Browser-Vollbildmodus (F)'">
+            <svg *ngIf="!isFullscreen" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+            </svg>
+            <svg *ngIf="isFullscreen" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Schließen-Button -->
+      <button class="ss-close" [class.ss-hidden]="!ssControlsVisible" (click)="closeSlideshowView()" aria-label="Diashow schließen">✕</button>
+    </div>
+
+
 </html>

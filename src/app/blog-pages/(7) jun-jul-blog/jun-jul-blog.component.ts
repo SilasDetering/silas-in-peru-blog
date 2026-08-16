@@ -9,7 +9,7 @@ import { ImagesService } from '../../services/images.service';
 })
 export class JunJulBlogComponent implements AfterViewInit {
 
-  readonly image1Filename = 'IMG_4297.HEIC';
+  readonly image1Filename = 'IMG_1613.JPG';
   readonly image2Filename = 'DSCF9469.jpg';
   readonly image3Filename = 'DSCF9372.jpg';
   readonly image4Filename = '1119EBCC-CF46-45BE-AE2F-E59C016EB47B.jpeg';

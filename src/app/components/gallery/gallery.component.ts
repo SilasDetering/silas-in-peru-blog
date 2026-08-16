@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ImagesService } from '../../services/images.service';
+
+export type SlideshowItem =
+  | { kind: 'title'; month: string; location?: string }
+  | { kind: 'image'; url: string; filename: string; comment: string; month: string; location: string }
+  | { kind: 'video'; url: string; filename: string; comment: string; poster: string; month: string; location: string };
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent {
+export class GalleryComponent implements OnInit, OnDestroy {
+
+  private triggerHandler = () => this.startSlideshow();
+
 
   sections: {
     name: string;
@@ -70,6 +78,14 @@ export class GalleryComponent {
     });
   }
 
+  ngOnInit(): void {
+    window.addEventListener('trigger-slideshow', this.triggerHandler);
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('trigger-slideshow', this.triggerHandler);
+  }
+
   openImage(image: any): void {
     // akzeptiert string oder das image-objekt
     let filename = '';
@@ -91,6 +107,48 @@ export class GalleryComponent {
     if (this.visibleCount < this.sections.length) {
       this.visibleCount++;
     }
+  }
+
+  startSlideshow(): void {
+    const items: SlideshowItem[] = [];
+
+    // Von unten nach oben: älteste Sektion zuerst → umgekehrte Reihenfolge
+    const sectionsReversed = [...this.sections].reverse();
+
+    for (const section of sectionsReversed) {
+      const foldersReversed = [...section.subfolders].reverse();
+
+      for (const folder of foldersReversed) {
+        // Nur Ortstitel-Karte (enthält bereits den Monat)
+        items.push({ kind: 'title', month: section.name, location: folder.name });
+
+        const imagesReversed = [...folder.images].reverse();
+        for (const img of imagesReversed) {
+          if (img.type === 'video') {
+            items.push({
+              kind: 'video',
+              url: this.imagesService.getCdnFullUrl(img.filename),
+              filename: img.filename,
+              comment: img.comment || '',
+              poster: (img as any).poster || '',
+              month: section.name,
+              location: folder.name
+            });
+          } else {
+            items.push({
+              kind: 'image',
+              url: this.imagesService.getCdnFullUrl(img.filename),
+              filename: img.filename,
+              comment: img.comment || '',
+              month: section.name,
+              location: folder.name
+            });
+          }
+        }
+      }
+    }
+
+    window.dispatchEvent(new CustomEvent('open-slideshow', { detail: { items } }));
   }
 
   // Sendet ein CustomEvent ans window, damit die app-root das Modal öffnen kann
