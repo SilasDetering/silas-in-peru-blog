@@ -423,19 +423,20 @@
     padding: 2rem;
 }
 
-.ss-title-month {
-    font-size: clamp(3rem, 10vw, 8rem);
+.ss-title-location {
+    font-size: clamp(2.5rem, 7.5vw, 6rem);
     font-weight: 700;
     color: #CAD2C5;
-    letter-spacing: -0.03em;
-    line-height: 1;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    max-width: 90vw;
 }
 
-.ss-title-location {
-    font-size: clamp(1.2rem, 3.5vw, 2.8rem);
+.ss-title-month {
+    font-size: clamp(1.1rem, 2.5vw, 2rem);
     font-weight: 300;
     color: rgba(202, 210, 197, 0.7);
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
 }
 
 /* ---- Progress Bar ---- */

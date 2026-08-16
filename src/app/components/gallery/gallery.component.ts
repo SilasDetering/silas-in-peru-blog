@@ -112,18 +112,19 @@ export class GalleryComponent implements OnInit, OnDestroy {
   startSlideshow(): void {
     const items: SlideshowItem[] = [];
 
-    // Von unten nach oben: älteste Sektion zuerst → umgekehrte Reihenfolge
+    // Zeiträume umkehren: vom ältesten Monat bis zum neuesten
     const sectionsReversed = [...this.sections].reverse();
 
     for (const section of sectionsReversed) {
+      // Orte umkehren: vom untersten Ort im Monat zum obersten
       const foldersReversed = [...section.subfolders].reverse();
 
       for (const folder of foldersReversed) {
-        // Nur Ortstitel-Karte (enthält bereits den Monat)
+        // Titelkarte für das Kapitel / den Ort
         items.push({ kind: 'title', month: section.name, location: folder.name });
 
-        const imagesReversed = [...folder.images].reverse();
-        for (const img of imagesReversed) {
+        // Fotos im Ort von oben nach unten (Originalreihenfolge)
+        for (const img of folder.images) {
           if (img.type === 'video') {
             items.push({
               kind: 'video',

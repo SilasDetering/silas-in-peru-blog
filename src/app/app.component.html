@@ -80,9 +80,11 @@
 
       <!-- STATE 1: Titelkarte -->
       <div class="ss-title-card" *ngIf="currentSsItem?.kind === 'title'" [attr.data-key]="slideshowProgressKey">
-        <div class="ss-title-month">{{ currentSsItem!.month }}</div>
-        <div class="ss-title-location" *ngIf="currentSsItem!.kind === 'title' && currentSsItem!.location">
-          {{ currentSsItem!.location }}
+        <div class="ss-title-location">
+          {{ currentSsItem!.location || currentSsItem!.month }}
+        </div>
+        <div class="ss-title-month" *ngIf="currentSsItem!.kind === 'title' && currentSsItem!.location">
+          {{ currentSsItem!.month }}
         </div>
       </div>
 

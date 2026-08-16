@@ -14,7 +14,7 @@
     <div class="blog-float-wrap">
         <div class="blog-float-text">
 
-            <img [src]="image1" class="image-right" (click)="openBlogImageModal(0)" style="cursor: pointer; max-height: 420px;" />
+            <img [src]="image1" class="image-right image-big" (click)="openBlogImageModal(0)" style="cursor: pointer; max-height: 420px;" />
             <div class="image-caption" *ngIf="blogImages[0]?.comment">{{ blogImages[0].comment }}</div>
 
             Wow, was für ein Jahr! <br>
@@ -70,8 +70,8 @@
 
             <h4>Unsere letzten Tage in Cashibo</h4>
 
-            <img [src]="image3" class="image-left" (click)="openBlogImageModal(2)" style="cursor: pointer; max-height: 420px;" />
-            <div class="image-caption" *ngIf="blogImages[2]?.comment">{{ blogImages[2].comment }}</div>
+            <img [src]="image4" class="image-left image-portrait" (click)="openBlogImageModal(3)" style="cursor: pointer; max-height: 420px;" />
+            <div class="image-caption" *ngIf="blogImages[3]?.comment">{{ blogImages[3].comment }}</div>
 
             Nach der Abreise der Studenten wurde es wieder ruhiger auf Cashibo. 
             Gerade die Sommerpause wird dafür genutzt um in die Heimat zu reisen und Zeit mit der Familie zu verbringen oder einfach Urlaub in Peru zu machen.
