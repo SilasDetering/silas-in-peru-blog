@@ -424,6 +424,14 @@ a.meta-item:hover, a.meta-item:active, a.meta-item:focus {
     font-weight: bold;
 }
 
+@media (max-width: 700px) {
+    .danke {
+        text-align: center;
+        font-size: 5.50em;
+        font-weight: bold;
+    }
+}
+
 /* --- Bilder Leiste (Image Row) --- */
 .image-row {
     display: flex;
