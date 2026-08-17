@@ -11,6 +11,17 @@ body {
     width: 100%;
 }
 
+/* Bild- und Medienschutz: Kein Drag & Drop, keine Bildauswahl */
+img, video {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
 /* COLOR SCEME */
 
 .bg-primary {

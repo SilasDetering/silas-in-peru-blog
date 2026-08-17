@@ -221,6 +221,17 @@ export class AppComponent implements OnInit, OnDestroy {
     this.isFullscreen = !!document.fullscreenElement;
   }
 
+  @HostListener('document:contextmenu', ['$event'])
+  onGlobalContextMenu(event: MouseEvent): void {
+    const target = event.target as HTMLElement | null;
+    if (target) {
+      const isMedia = target.matches('img, video, canvas') || !!target.closest('img, video, canvas, .gallery-item, .blog-float-wrap, .image-row, .modal-image-wrap, .signature-row, .gebetsanliegen');
+      if (isMedia) {
+        event.preventDefault();
+      }
+    }
+  }
+
   onModalImageLoad(ev: Event): void {
     // set landscape/portrait based on intrinsic image size
     const img = ev?.target as HTMLImageElement | null;
