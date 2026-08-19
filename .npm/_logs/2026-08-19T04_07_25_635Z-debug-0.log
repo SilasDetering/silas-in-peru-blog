@@ -1,0 +1,19 @@
+0 verbose cli /Users/silas/.nvm/versions/node/v20.19.4/bin/node /Users/silas/.nvm/versions/node/v20.19.4/bin/npm
+1 info using npm@11.7.0
+2 info using node@v20.19.4
+3 silly config load:file:/Users/silas/.nvm/versions/node/v20.19.4/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/silas/Dokumente/Workspace/silas-in-peru-blog/.npmrc
+5 silly config load:file:/Users/silas/.nvm/versions/node/v20.19.4/etc/npmrc
+6 verbose title npm test --watch=false
+7 verbose argv "test" "--" "--watch=false"
+8 verbose logfile logs-max:10 dir:/Users/silas/Dokumente/Workspace/silas-in-peru-blog/.npm/_logs/2026-08-19T04_07_25_635Z-
+9 verbose logfile /Users/silas/Dokumente/Workspace/silas-in-peru-blog/.npm/_logs/2026-08-19T04_07_25_635Z-debug-0.log
+10 silly logfile done cleaning log files
+11 http fetch GET https://registry.npmjs.org/npm attempt 1 failed with ENOTFOUND
+12 http fetch GET https://registry.npmjs.org/npm attempt 2 failed with ENOTFOUND
+13 verbose cwd /Users/silas/Dokumente/Workspace/silas-in-peru-blog
+14 verbose os Darwin 25.5.0
+15 verbose node v20.19.4
+16 verbose npm  v11.7.0
+17 verbose exit 1
+18 verbose code 1

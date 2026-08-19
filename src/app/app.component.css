@@ -79,12 +79,14 @@
     z-index: 2000;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 180ms ease;
+    visibility: hidden;
+    transition: opacity 180ms ease, visibility 180ms ease;
 }
 
 .app-overlay-modal.open {
     pointer-events: auto;
     opacity: 1;
+    visibility: visible;
 }
 
 .app-overlay-backdrop {
@@ -105,7 +107,6 @@
     gap: 12px;
     justify-content: center;
     flex-direction: column;
-    pointer-events: auto;
 }
 
 .modal-image-wrap {
@@ -351,12 +352,14 @@
 
     opacity: 0;
     pointer-events: none;
-    transition: opacity 280ms ease;
+    visibility: hidden;
+    transition: opacity 280ms ease, visibility 280ms ease;
 }
 
 .ss-overlay.ss-open {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
 }
 
 /* ---- Blur-Hintergrund (Bildhintergrund für Hochkant-Fotos) ---- */
