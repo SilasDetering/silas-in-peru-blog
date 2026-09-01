@@ -14,6 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title: string = 'Silas in Peru';
   picture: string = 'colca_canyon.JPG';
   isGalleryPage = false;
+  showScrollTop = false;
 
   // Modal state
   modalOpen = false;
@@ -114,6 +115,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private updateRoute(url: string): void {
+    this.showScrollTop = false;
     switch (url) {
       case '/home':
         this.title = 'Blog';
@@ -139,6 +141,20 @@ export class AppComponent implements OnInit, OnDestroy {
         this.title = 'Silas in Peru';
         this.picture = 'colca_canyon.JPG';
         this.isGalleryPage = false;
+    }
+  }
+
+  onWrapperScroll(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (target) {
+      this.showScrollTop = target.scrollTop > 300;
+    }
+  }
+
+  scrollToTop(): void {
+    const wrapper = document.querySelector('.wrapper');
+    if (wrapper) {
+      wrapper.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { ImagesService } from '../../services/images.service';
 
 export type SlideshowItem =
@@ -11,10 +11,9 @@ export type SlideshowItem =
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit, OnDestroy {
+export class GalleryComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private triggerHandler = () => this.startSlideshow();
-
 
   sections: {
     name: string;
@@ -22,12 +21,14 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }[] = [];
 
   visibleCount = 2;
+  activeSectionIndex = 0;
+  private observer?: IntersectionObserver;
 
   private readonly CDN_BASE = 'https://silas-in-peru-fotos.b-cdn.net';
   private readonly CDN_FOLDER = 'Fotos';
   private readonly CDN_SMALL_SUBFOLDER = '800px';
 
-  constructor(private imagesService: ImagesService) {
+  constructor(private imagesService: ImagesService, private cdr: ChangeDetectorRef) {
     // build nested sections model
     const sectionNames = this.imagesService.getSectionNames();
     this.sections = sectionNames.map(sectionName => {
@@ -82,8 +83,15 @@ export class GalleryComponent implements OnInit, OnDestroy {
     window.addEventListener('trigger-slideshow', this.triggerHandler);
   }
 
+  ngAfterViewInit(): void {
+    this.initIntersectionObserver();
+  }
+
   ngOnDestroy(): void {
     window.removeEventListener('trigger-slideshow', this.triggerHandler);
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 
   openImage(image: any): void {
@@ -106,7 +114,71 @@ export class GalleryComponent implements OnInit, OnDestroy {
   onLoadMore(): void {
     if (this.visibleCount < this.sections.length) {
       this.visibleCount++;
+      this.cdr.detectChanges();
+      this.observeElements();
     }
+  }
+
+  scrollToSection(index: number): void {
+    if (index < 0 || index >= this.sections.length) return;
+
+    this.activeSectionIndex = index;
+
+    if (this.visibleCount <= index) {
+      this.visibleCount = index + 1;
+      this.cdr.detectChanges();
+      this.observeElements();
+    }
+
+    setTimeout(() => {
+      const element = document.getElementById('gallery-section-' + index);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 60);
+  }
+
+  private initIntersectionObserver(): void {
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
+
+    const scrollContainer = document.querySelector('.wrapper');
+
+    this.observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+      if (visible.length > 0) {
+        const topEntry = visible[0];
+        const id = topEntry.target.id;
+        const indexStr = id.replace('gallery-section-', '');
+        const foundIndex = parseInt(indexStr, 10);
+        if (!isNaN(foundIndex) && foundIndex >= 0 && foundIndex < this.sections.length) {
+          this.activeSectionIndex = foundIndex;
+          this.cdr.detectChanges();
+        }
+      }
+    }, {
+      root: scrollContainer,
+      threshold: [0.05, 0.2],
+      rootMargin: '-40px 0px -50% 0px'
+    });
+
+    this.observeElements();
+  }
+
+  private observeElements(): void {
+    if (!this.observer) return;
+    setTimeout(() => {
+      this.sections.forEach((_, i) => {
+        if (i < this.visibleCount) {
+          const el = document.getElementById('gallery-section-' + i);
+          if (el) {
+            this.observer?.observe(el);
+          }
+        }
+      });
+    }, 100);
   }
 
   startSlideshow(): void {

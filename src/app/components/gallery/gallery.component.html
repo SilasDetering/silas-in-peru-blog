@@ -1,11 +1,26 @@
 <div class="gallery-page">
 
-  <div class="note">
+  <!-- <div class="note">
     <p>Hier findest du eine Auswahl meiner Fotos. Die Fotos sind nach Monaten und Orten sortiert, innerhalb der Orte aber chronologisch von oben nach unten.</p>
+  </div> -->
+
+  <!-- Schnellauswahl Navbar (dezent im Hintergrund) -->
+  <div class="gallery-quicknav-container">
+    <div class="gallery-quicknav-pills" role="navigation" aria-label="Galerie Schnellauswahl">
+      <button
+        *ngFor="let section of sections; let i = index"
+        type="button"
+        class="quicknav-pill"
+        [class.active]="activeSectionIndex === i"
+        (click)="scrollToSection(i)"
+        [attr.aria-label]="'Zur Galerie ' + section.name + ' scrollen'">
+        <span>{{ section.name }}</span>
+      </button>
+    </div>
   </div>
 
-  <!-- NEU: äußere Sektionen -->
-  <div *ngFor="let section of sections | slice:0:visibleCount">
+  <!-- äußere Sektionen -->
+  <div *ngFor="let section of sections | slice:0:visibleCount; let sIndex = index" [id]="'gallery-section-' + sIndex" class="gallery-section-wrapper">
     <h2 class="section-title">{{ section.name }}</h2>
 
     <!-- innere Subfolders (wie vorher) -->

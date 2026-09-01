@@ -1,6 +1,6 @@
 <html lang="de">
 
-    <div class="wrapper">
+    <div class="wrapper" (scroll)="onWrapperScroll($event)">
         <app-navbar></app-navbar>
         
         <section id="parallax">
@@ -16,6 +16,15 @@
 
         <app-footer></app-footer>
     </div>
+
+    <!-- Nach oben FAB: außerhalb von .wrapper → position:fixed wirkt relativ zum Viewport -->
+    <button *ngIf="isGalleryPage && !slideshowOpen && showScrollTop"
+      class="gallery-fab scroll-top-fab"
+      (click)="scrollToTop()"
+      aria-label="Nach oben scrollen">
+      <span class="gallery-fab-icon scroll-top-icon"><i class="bi bi-arrow-up" aria-hidden="true"></i></span>
+      <span class="gallery-fab-text">Nach oben</span>
+    </button>
 
     <!-- Diashow FAB: außerhalb von .wrapper → position:fixed wirkt relativ zum Viewport -->
     <button *ngIf="isGalleryPage && !slideshowOpen"
