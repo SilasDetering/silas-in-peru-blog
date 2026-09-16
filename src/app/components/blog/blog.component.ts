@@ -6,6 +6,7 @@ import { DezBlogComponent } from '../../blog-pages/(4) dez-blog/dez-blog.compone
 import { FebBlogComponent } from '../../blog-pages/(5) feb-blog/feb-blog.component';
 import { JunJulBlogComponent } from '../../blog-pages/(7) jun-jul-blog/jun-jul-blog.component';
 import { AprBlogComponent } from '../../blog-pages/(6) apr-blog/apr-blog.component';
+import { GemeindebriefComponent } from '../../blog-pages/(8) gemeindebrief/gemeindebrief.component';
 
 export interface BlogEntry {
   id: string;
@@ -23,6 +24,13 @@ export interface BlogEntry {
 export class BlogComponent implements OnInit, AfterViewInit, OnDestroy {
 
   blogEntries: BlogEntry[] = [
+    {
+      id: 'gemeindebrief',
+      month: 'Gemeindebrief',
+      date: 'September 2026',
+      location: '',
+      component: GemeindebriefComponent,
+    },
     {
       id: 'blog-jul-2026',
       month: 'Juli 2026',
