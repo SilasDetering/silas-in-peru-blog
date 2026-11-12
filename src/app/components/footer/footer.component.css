@@ -83,7 +83,27 @@
   align-self: flex-start;
 }
 
-.impressum, .impressum a {
+.impressum {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  padding: 0.5rem 1rem 2rem;
   text-align: center;
   color: #CAD2C5;
+}
+
+.impressum a {
+  color: #CAD2C5;
+}
+
+@media (max-width: 480px) {
+  .impressum {
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+  }
+  .impressum-sep {
+    display: none;
+  }
 }
