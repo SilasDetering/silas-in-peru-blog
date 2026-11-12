@@ -13,7 +13,7 @@ export class JunJulBlogComponent implements AfterViewInit {
   readonly image2Filename = '72334d2c-584f-496e-9fe5-3a4afb8f48cf.jpg';
   readonly image3Filename = 'dji_fly_20260612_181324_0248_1782062785046_photo_beautify.jpg';
   readonly image4Filename = 'IMG_8403.JPG';
-  readonly image5Filename = 'IMG_4769.jpeg';
+  readonly image5Filename = 'IMG_4769.JPG';
   readonly image6Filename = 'DSCF9372.jpg';
   readonly image7Filename = 'A20E0D57-73AB-4CC3-B57E-F32F332D1424_1_105_c.jpeg';
 

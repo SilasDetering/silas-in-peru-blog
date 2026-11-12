@@ -9,7 +9,7 @@ import { ImagesService } from '../../services/images.service';
 })
 export class AprBlogComponent implements AfterViewInit {
 
-  readonly image1Filename = 'IMG_4297.JPG';
+  readonly image1Filename = 'IMG_4297.jpeg';
   readonly image2Filename = 'DSCF9469.jpg';
   readonly image3Filename = 'DSCF9372.jpg';
   readonly image4Filename = '1119EBCC-CF46-45BE-AE2F-E59C016EB47B.jpeg';
