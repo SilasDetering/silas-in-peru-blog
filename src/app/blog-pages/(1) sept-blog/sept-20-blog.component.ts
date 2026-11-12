@@ -9,8 +9,8 @@ import { ImagesService } from '../../services/images.service';
 })
 export class Sept20BlogComponent {
 
-  URL1 = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
-  URL2 = 'https://www.youtube.com/embed/1La4QzGeaaQ';
+  URL1 = 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ';
+  URL2 = 'https://www.youtube-nocookie.com/embed/1La4QzGeaaQ';
 
   youtubeHorizontal: SafeResourceUrl;
   youtubeVertical: SafeResourceUrl;
