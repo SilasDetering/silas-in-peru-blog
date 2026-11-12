@@ -14,7 +14,7 @@ export class GemeindebriefComponent implements AfterViewInit {
     readonly image3Filename = 'IMG_5030.JPG';
     readonly image4Filename = 'IMG_0648.jpeg';
     readonly image5Filename = '358BE6F2-359B-4B0E-AF0D-95104932F9D9_1_105_c.jpeg';
-    readonly image6Filename = 'IMG_4297.JPG';
+    readonly image6Filename = 'IMG_4297.jpeg';
     readonly image7Filename = 'IMG_4773.JPG';
   
     image1: string = '';
